@@ -1,8 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
+  componentDidMount() {
+    try {
+      console.log(fetch);
+      fetch("https://api.punkapi.com/v2/beers", {
+        mode: "cors"
+      })
+        .then(response => response.json())
+        .then(beers => console.log("Beers: ", beers))
+        .catch(err => console.log("err:", err));
+    } catch (err) {
+      console.log("Fetch error:", err);
+    }
+  }
+
   render() {
     return (
       <div className="App">
