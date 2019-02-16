@@ -59,6 +59,13 @@ export class Beers extends React.Component<BeersProps, BeersState> {
     }
   }
 
+  getAnimationDelay(itemIndex: number) {
+    const normalizedIndex = itemIndex % 25;
+    const delay = Math.min(2, normalizedIndex * 0.1);
+
+    return `${delay}s`;
+  }
+
   render() {
     if (!this.state.beers) {
       return <div>Loading...</div>;
@@ -67,8 +74,11 @@ export class Beers extends React.Component<BeersProps, BeersState> {
     return (
       <>
         <BeersList>
-          {this.state.beers!.map(beer => (
-            <li key={beer.id}>
+          {this.state.beers!.map((beer, index) => (
+            <li
+              key={beer.id}
+              style={{ animationDelay: this.getAnimationDelay(index) }}
+            >
               <BeerItem beer={beer} />
             </li>
           ))}
