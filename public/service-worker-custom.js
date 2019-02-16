@@ -1,13 +1,5 @@
 console.log("Service-worker-custom");
 
-self.addEventListener("install", e => {
-  console.log("Install: ", e);
-});
-
-self.addEventListener("activate", e => {
-  console.log("Activate: ", e);
-});
-
 self.addEventListener("fetch", function(event) {
   console.log("Fetch event:", event);
   event.respondWith(
