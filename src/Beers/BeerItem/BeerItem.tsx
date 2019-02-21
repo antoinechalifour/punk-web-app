@@ -25,7 +25,7 @@ export const BeerItem: React.FunctionComponent<BeerItemProps> = ({ beer }) => (
           <Details>
             <Name>{beer.name}</Name>
             <TagLine>{beer.tagline}</TagLine>
-            <Link href="">Read more</Link>
+            <Link to={`/beers/${beer.id}`}>Read more</Link>
           </Details>
         </InnerLayout>
       </CardContent>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
 
 export const Wrapper = styled.div`
   padding: 0.5rem;
@@ -35,7 +36,7 @@ export const TagLine = styled.p`
   font-size: 1.2rem;
 `;
 
-export const Link = styled.a`
+export const Link = styled(RouterLink)`
   display: block;
   margin-top: 1rem;
   font-size: 1.2rem;
