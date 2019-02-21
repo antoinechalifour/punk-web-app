@@ -18,7 +18,7 @@ export const BeersList = styled.ul`
 
   li {
     will-change: transform;
-    animation: ${beerEnterAnimation} 0.5s ease both;
+    animation: ${beerEnterAnimation} 0.2s ease both;
   }
 
   @media (min-width: 600px) {

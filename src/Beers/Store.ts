@@ -10,7 +10,7 @@ export interface Beer {
   image_url: string;
 }
 
-export interface BeerStore {
+export interface BeersStore {
   state$: Observable<BeerStoreState>;
   fetchMore: () => void;
 }
@@ -27,7 +27,7 @@ function beersReducer(state: Beer[], newBeers: Beer[]) {
   return [...state, ...newBeers];
 }
 
-export function createStore(): BeerStore {
+export function createStore(): BeersStore {
   const pagination$ = new BehaviorSubject<undefined>(undefined);
   const state$ = pagination$.pipe(
     throttleTime(2000),

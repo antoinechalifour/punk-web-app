@@ -1,12 +1,12 @@
 import React from "react";
 import { Subscription } from "rxjs";
 
-import { Beer, BeerStore } from "./Store";
+import { Beer, BeersStore } from "./Store";
 import { BeerItem } from "./BeerItem";
 import { BeersList } from "./styles";
 
 export interface BeersProps {
-  store: BeerStore;
+  store: BeersStore;
 }
 
 interface BeersState {
@@ -16,7 +16,6 @@ interface BeersState {
 export class Beers extends React.Component<BeersProps, BeersState> {
   private subscription?: Subscription;
   private unobserve?: () => void;
-  private intersectionObserver?: IntersectionObserver;
   public state: BeersState = {
     beers: null
   };
@@ -25,7 +24,11 @@ export class Beers extends React.Component<BeersProps, BeersState> {
     this.props.store.fetchMore();
   };
 
-  private setupLazyLoader = (el: HTMLElement) => {
+  private setupLazyLoader = (el: HTMLElement | null) => {
+    if (el === null) {
+      return;
+    }
+
     const options = {
       root: null,
       rootMargin: "10px",
