@@ -1,5 +1,5 @@
 import { Observable, BehaviorSubject, ReplaySubject } from "rxjs";
-import { scan, throttleTime, switchMap, tap, share } from "rxjs/operators";
+import { scan, throttleTime, switchMap, tap } from "rxjs/operators";
 
 export interface Beer {
   id: number;

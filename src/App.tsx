@@ -5,6 +5,7 @@ import { Beers } from "./Beers";
 import { createStore } from "./Beers/Store";
 import { Header } from "./Header";
 import { BeerDetails } from "./BeerDetails";
+import { Search } from "./Search";
 
 const store = createStore();
 
@@ -16,6 +17,7 @@ export function App() {
           path="/beers/:id"
           render={({ match }) => <BeerDetails id={match.params.id} />}
         />
+        <Route path="/search" render={() => <Search />} />
         <Route>
           <>
             <Header />

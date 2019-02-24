@@ -2,7 +2,7 @@ import React from "react";
 import { Subscription } from "rxjs";
 
 import { Beer, BeersStore } from "./Store";
-import { BeerItem } from "./BeerItem";
+import { BeerPreview } from "../BeerPreview";
 import { BeersList, LoadMore } from "./styles";
 
 export interface BeersProps {
@@ -76,7 +76,12 @@ export class Beers extends React.Component<BeersProps, BeersState> {
         <BeersList>
           {this.state.beers.map((beer, index) => (
             <li key={beer.id}>
-              <BeerItem beer={beer} />
+              <BeerPreview
+                id={beer.id}
+                imageUrl={beer.image_url}
+                name={beer.name}
+                tagline={beer.tagline}
+              />
             </li>
           ))}
         </BeersList>
