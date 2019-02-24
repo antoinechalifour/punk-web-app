@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Subscription } from "rxjs";
 
-import { Beer, createStore } from "./Store";
+import { Beer, createStore, BeerStore } from "./Store";
 import { Template } from "./Template";
 import { BrewerTips } from "./BrewerTips";
 import { Description } from "./Description";
@@ -20,42 +20,38 @@ interface BeerDetailsState {
   beer: Beer | null;
 }
 
-export class BeerDetails extends React.Component<
-  BeerDetailsProps,
-  BeerDetailsState
-> {
-  public state: BeerDetailsState = {
-    beer: null
-  };
-  private subscription?: Subscription;
-  private store = createStore(this.props.id);
+export const BeerDetails: React.FunctionComponent<BeerDetailsProps> = ({
+  id
+}) => {
+  const store = useRef<BeerStore | null>(null);
+  const [beer, setBeer] = useState<Beer | null>(null);
 
-  public componentDidMount() {
-    this.subscription = this.store.state$.subscribe(this.updateBeer);
-  }
-
-  public componentWillUnmount() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
+  function getStore() {
+    if (!store.current) {
+      store.current = createStore(id);
     }
+
+    return store.current;
   }
 
-  private updateBeer = (beer: Beer) => this.setState({ beer });
+  useEffect(() => window.scrollTo(0, 0), []);
 
-  render() {
-    const { beer } = this.state;
+  useEffect(() => {
+    const subscription = getStore().state$.subscribe(setBeer);
 
-    return (
-      <Template
-        brewersTips={<BrewerTips beer={beer} />}
-        description={<Description beer={beer} />}
-        generalInformation={<GeneralInformation beer={beer} />}
-        header={<Header beer={beer} />}
-        image={<Image beer={beer} />}
-        hops={<Hops beer={beer} />}
-        malts={<Malts beer={beer} />}
-        yeast={<Yeast beer={beer} />}
-      />
-    );
-  }
-}
+    return () => subscription.unsubscribe();
+  }, [id]);
+
+  return (
+    <Template
+      brewersTips={<BrewerTips beer={beer} />}
+      description={<Description beer={beer} />}
+      generalInformation={<GeneralInformation beer={beer} />}
+      header={<Header beer={beer} />}
+      image={<Image beer={beer} />}
+      hops={<Hops beer={beer} />}
+      malts={<Malts beer={beer} />}
+      yeast={<Yeast beer={beer} />}
+    />
+  );
+};
