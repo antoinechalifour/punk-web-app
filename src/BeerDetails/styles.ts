@@ -6,7 +6,7 @@ export const Container = styled.div`
 
 const headerEnterAnimation = keyframes`
   from {
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
   }
   to {
     padding-bottom: 9.5rem;
