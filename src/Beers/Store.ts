@@ -1,5 +1,5 @@
-import { Observable, BehaviorSubject } from "rxjs";
-import { scan, flatMap, map, tap, throttleTime } from "rxjs/operators";
+import { Observable, BehaviorSubject, ReplaySubject } from "rxjs";
+import { scan, throttleTime, switchMap, tap, share } from "rxjs/operators";
 
 export interface Beer {
   id: number;
@@ -28,13 +28,18 @@ function beersReducer(state: Beer[], newBeers: Beer[]) {
 }
 
 export function createStore(): BeersStore {
-  const pagination$ = new BehaviorSubject<undefined>(undefined);
-  const state$ = pagination$.pipe(
+  const pagination$ = new BehaviorSubject(undefined);
+  const beers$ = pagination$.pipe(
     throttleTime(2000),
     scan<undefined, number>(acc => acc + 1, 0),
-    flatMap(fetchBeers),
+    tap(page => console.log("Fetching page: ", page)),
+    switchMap(fetchBeers),
     scan(beersReducer, [] as Beer[])
   );
+
+  const state$ = new ReplaySubject<Beer[]>(1);
+
+  beers$.subscribe(state$);
 
   return {
     state$,

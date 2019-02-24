@@ -1,10 +1,6 @@
 import React from "react";
 import { Subscription } from "rxjs";
-import {
-  TextBlock,
-  RoundShape,
-  TextRow
-} from "react-placeholder/lib/placeholders";
+import { TextBlock, RoundShape } from "react-placeholder/lib/placeholders";
 
 import { Beer, createStore } from "./Store";
 import { Template } from "./Template";
