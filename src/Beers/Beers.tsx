@@ -3,7 +3,7 @@ import { Subscription } from "rxjs";
 
 import { Beer, BeersStore } from "./Store";
 import { BeerItem } from "./BeerItem";
-import { BeersList } from "./styles";
+import { BeersList, LoadMore } from "./styles";
 
 export interface BeersProps {
   store: BeersStore;
@@ -80,7 +80,7 @@ export class Beers extends React.Component<BeersProps, BeersState> {
             </li>
           ))}
         </BeersList>
-        <span ref={this.setupLazyLoader}>Loading...</span>
+        <LoadMore ref={this.setupLazyLoader}>Loading...</LoadMore>
       </>
     );
   }
