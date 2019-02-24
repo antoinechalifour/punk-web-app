@@ -1,11 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   min-height: 100vh;
 `;
 
+const headerEnterAnimation = keyframes`
+  from {
+    padding-bottom: 8rem;
+  }
+  to {
+    padding-bottom: 9.5rem;
+  }
+`;
+
 export const Header = styled.header`
   padding: 3.5rem 1rem 9.5rem;
+
+  animation: ${headerEnterAnimation} 0.3s ease;
 
   color: #fff;
   background: #5491f7;
