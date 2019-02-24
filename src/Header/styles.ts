@@ -7,6 +7,7 @@ export const Wrapper = styled.header`
   padding-bottom: 80px;
   z-index: 2;
 
+  font-size: 2.5rem;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 
