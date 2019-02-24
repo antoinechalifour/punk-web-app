@@ -39,6 +39,19 @@ export const Header = styled.header`
     font-size: 1.5rem;
     font-style: italic;
   }
+
+  .text-row {
+    margin: auto;
+  }
+
+  .text-row:first-child {
+    max-width: 300px;
+    height: 2.5rem !important;
+  }
+
+  .text-row:last-child {
+    max-width: 150px;
+  }
 `;
 
 export const Content = styled.main`
@@ -121,7 +134,7 @@ export const GeneralInfo = styled.div`
   justify-content: space-around;
 `;
 
-export const InfoGroup = styled.p`
+export const InfoGroup = styled.div`
   text-align: center;
 
   span:first-child {

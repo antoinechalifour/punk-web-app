@@ -92,7 +92,6 @@ export interface Beer {
   foodPairing: string[];
   brewerTips: string;
   contributedBy: string;
-  categories: string[];
 }
 
 const srmToColor: any = {
@@ -138,164 +137,6 @@ const srmToColor: any = {
   40: "#2f0a0c"
 };
 
-const categories = [
-  {
-    from: 0,
-    to: 2,
-    name: "Pale Lager"
-  },
-  {
-    from: 0,
-    to: 2,
-    name: "Witbier"
-  },
-  {
-    from: 0,
-    to: 2,
-    name: "Pilsener"
-  },
-  {
-    from: 0,
-    to: 2,
-    name: "Berliner Weisse"
-  },
-  {
-    from: 3,
-    to: 3,
-    name: "Maibock"
-  },
-  {
-    from: 3,
-    to: 3,
-    name: "Blonde Ale"
-  },
-  {
-    from: 4,
-    to: 5,
-    name: "Weissbier"
-  },
-  {
-    from: 6,
-    to: 7,
-    name: "American Pale Ale"
-  },
-  {
-    from: 6,
-    to: 7,
-    name: "India Pale Ale"
-  },
-  {
-    from: 8,
-    to: 9,
-    name: "Weissbier"
-  },
-  {
-    from: 8,
-    to: 9,
-    name: "Saison"
-  },
-  {
-    from: 10,
-    to: 12,
-    name: "English Bitter"
-  },
-  {
-    from: 10,
-    to: 12,
-    name: "ESB"
-  },
-  {
-    from: 13,
-    to: 16,
-    name: "Biere de Garde"
-  },
-  {
-    from: 13,
-    to: 16,
-    name: "Double IPA"
-  },
-  {
-    from: 17,
-    to: 19,
-    name: "Dark Lager"
-  },
-  {
-    from: 17,
-    to: 19,
-    name: "Vienna Lager"
-  },
-  {
-    from: 17,
-    to: 19,
-    name: "Marzen"
-  },
-  {
-    from: 17,
-    to: 19,
-    name: "Amber Ale"
-  },
-  {
-    from: 20,
-    to: 23,
-    name: "Brown Ale"
-  },
-  {
-    from: 20,
-    to: 23,
-    name: "Bock"
-  },
-  {
-    from: 20,
-    to: 23,
-    name: "Dunkel"
-  },
-  {
-    from: 20,
-    to: 23,
-    name: "Dunkelweizen"
-  },
-  {
-    from: 24,
-    to: 28,
-    name: "Irish Dry Stout"
-  },
-  {
-    from: 24,
-    to: 28,
-    name: "Doppelbock"
-  },
-  {
-    from: 24,
-    to: 28,
-    name: "Porter"
-  },
-  {
-    from: 29,
-    to: 34,
-    name: "Stout"
-  },
-  {
-    from: 35,
-    to: 39,
-    name: "Foreign Stout"
-  },
-  {
-    from: 35,
-    to: 39,
-    name: "Baltic Porter"
-  },
-  {
-    from: 40,
-    to: 40,
-    name: "Imperial Stout"
-  }
-];
-
-const getCategory = (srm: number) =>
-  categories
-    .filter(category => srm >= category.from && srm <= category.to)
-    .map(category => category.name);
-
 function beerAdapter(apiBeer: ApiBeer): Beer {
   return {
     alcoholByVolume: apiBeer.abv,
@@ -323,8 +164,7 @@ function beerAdapter(apiBeer: ApiBeer): Beer {
     ph: apiBeer.ph,
     srm: apiBeer.srm,
     tagline: apiBeer.tagline,
-    yeast: apiBeer.ingredients.yeast,
-    categories: getCategory(apiBeer.srm)
+    yeast: apiBeer.ingredients.yeast
   };
 }
 
