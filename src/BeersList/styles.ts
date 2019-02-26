@@ -16,12 +16,3 @@ export const BeersList = styled.ul`
     }
   }
 `;
-
-export const LoadMore = styled.div`
-  padding: 1rem;
-
-  opacity: 0.75;
-  font-size: 1.3rem;
-  font-style: italic;
-  text-align: center;
-`;
