@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 
-import { useScrollEnd } from "./useScrollEnd";
+import { useScrollEnd } from "../../hooks/useScrollEnd";
 import { LoadMore } from "./styles";
 
 export interface InfiniteListProps {

@@ -1,5 +1,6 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 
+import { useObservable } from "../hooks/useObservable";
 import {
   Wrapper,
   SearchBox,
@@ -9,14 +10,14 @@ import {
   NoResultsImage,
   NoResultsMessage
 } from "./styles";
-import { SearchStore, createSearchStore, SearchResults } from "./Store";
+import { SearchStore, createSearchStore } from "./Store";
 import { BeerPreview } from "../BeerPreview";
 
 export interface SearchProps {}
 
 export const Search: React.FunctionComponent<SearchProps> = () => {
   const store = useRef<SearchStore | null>(null);
-  const [results, setResults] = useState<SearchResults>({
+  const results = useObservable(getStore().results$, {
     beers: null,
     query: ""
   });
@@ -28,12 +29,6 @@ export const Search: React.FunctionComponent<SearchProps> = () => {
 
     return store.current;
   }
-
-  useEffect(() => {
-    const subscription = getStore().results$.subscribe(setResults);
-
-    return () => subscription.unsubscribe();
-  }, []);
 
   return (
     <>

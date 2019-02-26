@@ -1,4 +1,7 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
+
+import { useObservable } from "../hooks/useObservable";
+import { useScrollReset } from "../hooks/useScrollReset";
 
 import { createStore, BeerStore } from "./Store";
 import { Template } from "./Template";
@@ -19,8 +22,10 @@ export interface BeerDetailsProps {
 export const BeerDetails: React.FunctionComponent<BeerDetailsProps> = ({
   id
 }) => {
+  useScrollReset();
+
   const store = useRef<BeerStore | null>(null);
-  const [beer, setBeer] = useState<Beer | null>(null);
+  const beer = useObservable<Beer | null>(getStore().state$, null);
 
   function getStore() {
     if (!store.current) {
@@ -29,14 +34,6 @@ export const BeerDetails: React.FunctionComponent<BeerDetailsProps> = ({
 
     return store.current;
   }
-
-  useEffect(() => window.scrollTo(0, 0), []);
-
-  useEffect(() => {
-    const subscription = getStore().state$.subscribe(setBeer);
-
-    return () => subscription.unsubscribe();
-  }, [id]);
 
   return (
     <Template
