@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { Beers } from "./BeersList";
-import { createStore } from "./BeersList/Store";
+import { createStore } from "./BeersList/store/Store";
 import { BeerDetails } from "./BeerDetails";
 import { Search } from "./Search";
 
