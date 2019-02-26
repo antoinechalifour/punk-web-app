@@ -1,9 +1,8 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, RouteProps } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { Beers } from "./Beers";
-import { createStore } from "./Beers/Store";
-import { Header } from "./Header";
+import { Beers } from "./BeersList";
+import { createStore } from "./BeersList/Store";
 import { BeerDetails } from "./BeerDetails";
 import { Search } from "./Search";
 
@@ -19,12 +18,7 @@ export function App() {
         />
         <Route path="/search" render={() => <Search />} />
         <Route>
-          <>
-            <Header />
-            <main>
-              <Beers store={store} />
-            </main>
-          </>
+          <Beers store={store} />
         </Route>
       </Switch>
     </BrowserRouter>

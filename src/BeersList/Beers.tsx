@@ -4,6 +4,7 @@ import { Subscription } from "rxjs";
 import { Beer, BeersStore } from "./Store";
 import { BeerPreview } from "../BeerPreview";
 import { BeersList, LoadMore } from "./styles";
+import { Header } from "./Header";
 
 export interface BeersProps {
   store: BeersStore;
@@ -72,7 +73,8 @@ export class Beers extends React.Component<BeersProps, BeersState> {
     }
 
     return (
-      <>
+      <main>
+        <Header />
         <BeersList>
           {this.state.beers.map((beer, index) => (
             <li key={beer.id}>
@@ -86,7 +88,7 @@ export class Beers extends React.Component<BeersProps, BeersState> {
           ))}
         </BeersList>
         <LoadMore ref={this.setupLazyLoader}>Loading...</LoadMore>
-      </>
+      </main>
     );
   }
 }
