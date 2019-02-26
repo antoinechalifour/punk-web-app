@@ -1,8 +1,8 @@
 import React from "react";
 import { RoundShape } from "react-placeholder/lib/placeholders";
 
+import { Beer } from "../../types";
 import { Image as BeerAvatar } from "../styles";
-import { Beer } from "../Store";
 
 export interface ImageProps {
   beer: Beer | null;

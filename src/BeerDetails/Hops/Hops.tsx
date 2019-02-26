@@ -1,7 +1,7 @@
 import React from "react";
 import { TextBlock } from "react-placeholder/lib/placeholders";
 
-import { Beer } from "../Store";
+import { Beer } from "../../types";
 
 export interface HopsProps {
   beer: Beer | null;

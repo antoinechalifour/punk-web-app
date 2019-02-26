@@ -1,12 +1,7 @@
 import { Observable, Subject, merge } from "rxjs";
 import { switchMap, filter, map, debounceTime } from "rxjs/operators";
-
-export interface Beer {
-  id: number;
-  name: string;
-  image_url: string;
-  tagline: string;
-}
+import { Beer } from "../types";
+import { createApi } from "../api";
 
 export interface SearchResults {
   query: string;
@@ -18,13 +13,8 @@ export interface SearchStore {
   search: (query: string) => void;
 }
 
-function searchBeers(query: string) {
-  return fetch(`https://api.punkapi.com/v2/beers?beer_name=${query}`).then(
-    response => response.json() as Promise<Beer[]>
-  );
-}
-
 export function createSearchStore(): SearchStore {
+  const api = createApi();
   const query$ = new Subject<string>();
 
   const abort$ = query$.pipe(
@@ -39,7 +29,7 @@ export function createSearchStore(): SearchStore {
     filter(query => query.length >= 2),
     debounceTime(300),
     switchMap(query =>
-      searchBeers(query).then(beers => ({
+      api.searchBeers(query).then(beers => ({
         query,
         beers
       }))

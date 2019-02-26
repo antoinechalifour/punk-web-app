@@ -1,10 +1,11 @@
 import React from "react";
 import { Subscription } from "rxjs";
 
-import { Beer, BeersStore } from "./Store";
+import { BeersStore } from "./Store";
 import { BeerPreview } from "../BeerPreview";
 import { BeersList, LoadMore } from "./styles";
 import { Header } from "./Header";
+import { Beer } from "../types";
 
 export interface BeersProps {
   store: BeersStore;
@@ -80,7 +81,7 @@ export class Beers extends React.Component<BeersProps, BeersState> {
             <li key={beer.id}>
               <BeerPreview
                 id={beer.id}
-                imageUrl={beer.image_url}
+                imageUrl={beer.imageUrl}
                 name={beer.name}
                 tagline={beer.tagline}
               />

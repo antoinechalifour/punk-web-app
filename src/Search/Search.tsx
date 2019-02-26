@@ -12,8 +12,6 @@ import {
 import { SearchStore, createSearchStore, SearchResults } from "./Store";
 import { BeerPreview } from "../BeerPreview";
 
-import noResults from "./no-results.png";
-
 export interface SearchProps {}
 
 export const Search: React.FunctionComponent<SearchProps> = () => {
@@ -60,7 +58,7 @@ export const Search: React.FunctionComponent<SearchProps> = () => {
             <li key={beer.id}>
               <BeerPreview
                 id={beer.id}
-                imageUrl={beer.image_url}
+                imageUrl={beer.imageUrl}
                 name={beer.name}
                 tagline={beer.tagline}
               />

@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Subscription } from "rxjs";
 
-import { Beer, createStore, BeerStore } from "./Store";
+import { createStore, BeerStore } from "./Store";
 import { Template } from "./Template";
 import { BrewerTips } from "./BrewerTips";
 import { Description } from "./Description";
@@ -11,13 +10,10 @@ import { Image } from "./Image";
 import { Hops } from "./Hops";
 import { Malts } from "./Malts";
 import { Yeast } from "./Yeast";
+import { Beer } from "../types";
 
 export interface BeerDetailsProps {
   id: string;
-}
-
-interface BeerDetailsState {
-  beer: Beer | null;
 }
 
 export const BeerDetails: React.FunctionComponent<BeerDetailsProps> = ({
