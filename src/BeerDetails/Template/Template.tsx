@@ -21,6 +21,7 @@ export interface TemplateProps {
   malts: JSX.Element;
   hops: JSX.Element;
   yeast: JSX.Element;
+  foodPairing: JSX.Element;
 }
 
 export const Template: React.FunctionComponent<TemplateProps> = ({
@@ -31,7 +32,8 @@ export const Template: React.FunctionComponent<TemplateProps> = ({
   brewersTips,
   malts,
   hops,
-  yeast
+  yeast,
+  foodPairing
 }) => (
   <Container>
     <Header>{header}</Header>
@@ -51,6 +53,14 @@ export const Template: React.FunctionComponent<TemplateProps> = ({
           <CardTitle>General Information</CardTitle>
 
           <GeneralInfo>{generalInformation}</GeneralInfo>
+        </Card>
+      </section>
+
+      <section>
+        <Card>
+          <CardTitle>This beer is best served with</CardTitle>
+
+          <div>{foodPairing}</div>
         </Card>
       </section>
 
