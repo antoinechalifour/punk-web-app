@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+
+import { useScrollEnd } from "./useScrollEnd";
 import { LoadMore } from "./styles";
 
 export interface InfiniteListProps {
@@ -6,52 +8,19 @@ export interface InfiniteListProps {
   renderLoader: () => JSX.Element;
 }
 
-export class InfiniteList extends React.Component<InfiniteListProps> {
-  private clearObserver?: () => void;
+export const InfiniteList: React.FunctionComponent<InfiniteListProps> = ({
+  children,
+  renderLoader,
+  requestMoreItems
+}) => {
+  const ref = useRef<HTMLDivElement | null>(null);
 
-  private loadMoreItems: IntersectionObserverCallback = entries => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        this.props.requestMoreItems();
-      }
-    });
-  };
+  useScrollEnd(ref, requestMoreItems);
 
-  private setUpObserver = (el: HTMLElement | null) => {
-    if (el === null) {
-      return;
-    }
-
-    const options = {
-      root: null,
-      rootMargin: "10px",
-      thrshold: 1.0
-    };
-
-    const intersectionObserver = new IntersectionObserver(
-      this.loadMoreItems,
-      options
-    );
-
-    intersectionObserver.observe(el);
-
-    this.clearObserver = () => intersectionObserver.unobserve(el);
-  };
-
-  componentWillUnmount() {
-    if (this.clearObserver) {
-      this.clearObserver();
-    }
-  }
-
-  render() {
-    return (
-      <>
-        {this.props.children}
-        <LoadMore ref={this.setUpObserver}>
-          {this.props.renderLoader()}
-        </LoadMore>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      {children}
+      <LoadMore ref={ref}>{renderLoader()}</LoadMore>
+    </>
+  );
+};
