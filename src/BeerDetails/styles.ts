@@ -1,22 +1,11 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   min-height: 100vh;
 `;
 
-const headerEnterAnimation = keyframes`
-  from {
-    padding-bottom: 4rem;
-  }
-  to {
-    padding-bottom: 9.5rem;
-  }
-`;
-
 export const Header = styled.header`
   padding: 3.5rem 1rem 9.5rem;
-
-  animation: ${headerEnterAnimation} 0.3s ease;
 
   color: #fff;
   background: #5491f7;
@@ -57,7 +46,7 @@ export const Header = styled.header`
 
   .text-row:first-child {
     max-width: 300px;
-    height: 2.5rem !important;
+    height: 2.6rem !important;
   }
 
   .text-row:last-child {
