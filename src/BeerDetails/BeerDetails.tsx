@@ -3,17 +3,11 @@ import React, { useRef } from "react";
 import { useObservable } from "../hooks/useObservable";
 import { useScrollReset } from "../hooks/useScrollReset";
 
-import { createStore, BeerStore } from "./Store";
-import { Template } from "./Template";
-import { BrewerTips } from "./BrewerTips";
-import { Description } from "./Description";
-import { GeneralInformation } from "./GeneralInformation";
-import { Header } from "./Header";
-import { Image } from "./Image";
-import { Hops } from "./Hops";
-import { Malts } from "./Malts";
-import { Yeast } from "./Yeast";
-import { Beer } from "../types";
+import { createStore, initialState } from "./store/Store";
+import { BeerStore, BeerStoreState } from "./store";
+import { Loading } from "./Loading";
+import { Errored } from "./Errored";
+import { Ready } from "./Ready";
 
 export interface BeerDetailsProps {
   id: string;
@@ -25,7 +19,7 @@ export const BeerDetails: React.FunctionComponent<BeerDetailsProps> = ({
   useScrollReset();
 
   const store = useRef<BeerStore | null>(null);
-  const beer = useObservable<Beer | null>(getStore().state$, null);
+  const state = useObservable<BeerStoreState>(getStore().state$, initialState);
 
   function getStore() {
     if (!store.current) {
@@ -35,16 +29,11 @@ export const BeerDetails: React.FunctionComponent<BeerDetailsProps> = ({
     return store.current;
   }
 
-  return (
-    <Template
-      brewersTips={<BrewerTips beer={beer} />}
-      description={<Description beer={beer} />}
-      generalInformation={<GeneralInformation beer={beer} />}
-      header={<Header beer={beer} />}
-      image={<Image beer={beer} />}
-      hops={<Hops beer={beer} />}
-      malts={<Malts beer={beer} />}
-      yeast={<Yeast beer={beer} />}
-    />
-  );
+  if (state.state === "mounting" || state.state === "loading") {
+    return <Loading />;
+  } else if (state.state === "errored") {
+    return <Errored />;
+  } else {
+    return <Ready beer={state.beer} />;
+  }
 };
