@@ -18,6 +18,12 @@ const Style = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  .Toastify__toast--info {
+    background: rgba(0, 0, 0, .95);
+    padding: 1.5rem;
+    border-radius: 4px;
+  }
 `;
 
 export const Theme: React.FunctionComponent = ({ children }) => (

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { FiArrowLeft } from "react-icons/fi";
 
 import { useObservable } from "../hooks/useObservable";
 import {
@@ -12,6 +13,7 @@ import {
 } from "./styles";
 import { SearchStore, createSearchStore } from "./Store";
 import { BeerPreview } from "../BeerPreview";
+import { Link } from "react-router-dom";
 
 export interface SearchProps {}
 
@@ -33,10 +35,15 @@ export const Search: React.FunctionComponent<SearchProps> = () => {
   return (
     <>
       <Wrapper>
-        <SearchBox
-          placeholder="Search for a beer..."
-          onChange={e => getStore().search(e.target.value)}
-        />
+        <div>
+          <Link to="/">
+            <FiArrowLeft />
+          </Link>
+          <SearchBox
+            placeholder="Search for a beer..."
+            onChange={e => getStore().search(e.target.value)}
+          />
+        </div>
       </Wrapper>
       {results.beers === null ? (
         <Instructions>Start typing to search your favorite beers!</Instructions>

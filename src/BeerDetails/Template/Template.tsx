@@ -1,4 +1,6 @@
 import * as React from "react";
+import { FiArrowLeft } from "react-icons/fi";
+
 import {
   Container,
   Header,
@@ -11,6 +13,7 @@ import {
   IngredientCategory,
   IngredientList
 } from "../styles";
+import { Link } from "react-router-dom";
 
 export interface TemplateProps {
   header: JSX.Element;
@@ -36,7 +39,12 @@ export const Template: React.FunctionComponent<TemplateProps> = ({
   foodPairing
 }) => (
   <Container>
-    <Header>{header}</Header>
+    <Header>
+      <Link to="/">
+        <FiArrowLeft />
+      </Link>
+      {header}
+    </Header>
 
     <Content>
       {image}

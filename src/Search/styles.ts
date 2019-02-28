@@ -12,13 +12,24 @@ export const Wrapper = styled.header`
 
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(84, 145, 247, 0.2);
   color: #fff;
+
+  > div {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: auto;
+
+    a {
+      color: #fff;
+      font-size: 24px;
+      margin-right: 1rem;
+    }
+  }
 `;
 
 export const SearchBox = styled.input`
   display: block;
   width: 100%;
-  max-width: 600px;
-  margin: auto;
   padding: 1rem 2rem;
   border-radius: 20px;
 

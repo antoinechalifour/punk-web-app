@@ -13,8 +13,9 @@ export const Header = styled.header`
 
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
-    0 5px 10px rgba(84, 145, 247, 0.2) h1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(84, 145, 247, 0.2);
+
+  h1 {
     position: relative;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
@@ -51,6 +52,14 @@ export const Header = styled.header`
 
   .text-row:last-child {
     max-width: 150px;
+  }
+
+  a {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: #fff;
+    font-size: 24px;
   }
 `;
 
