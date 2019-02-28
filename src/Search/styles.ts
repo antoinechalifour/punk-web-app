@@ -15,8 +15,12 @@ export const Wrapper = styled.header`
 `;
 
 export const SearchBox = styled.input`
-  width: 100%;
   display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem 2rem;
+  border-radius: 20px;
 
   background: none;
   outline: none;
@@ -24,6 +28,8 @@ export const SearchBox = styled.input`
 
   font-size: inherit;
   color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(84, 145, 247, 0.2);
 
   ::placeholder {
     color: #fff;
@@ -40,6 +46,23 @@ export const Instructions = styled.p`
 
 export const ResultList = styled.ul`
   padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: 768px) {
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem 0;
+  }
+
+  > li {
+    flex-basis: 100%;
+
+    @media (min-width: 768px) {
+      flex-basis: 50%;
+      overflow: hidden;
+    }
+  }
 `;
 
 export const NoResults = styled.div`
