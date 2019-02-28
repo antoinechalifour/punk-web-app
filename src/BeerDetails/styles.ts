@@ -95,7 +95,7 @@ export const CardTitle = styled.h2`
   font-weight: 500;
 `;
 
-export const Description = styled.p``;
+export const Description = styled.div``;
 
 export const Categories = styled.ul`
   display: flex;

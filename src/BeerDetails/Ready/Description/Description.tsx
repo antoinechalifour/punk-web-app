@@ -8,4 +8,4 @@ export interface DescriptionProps {
 
 export const Description: React.FunctionComponent<DescriptionProps> = ({
   beer
-}) => <>{beer.description}</>;
+}) => <p>{beer.description}</p>;
