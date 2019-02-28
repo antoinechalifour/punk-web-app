@@ -16,20 +16,6 @@ const fetchAndWriteToCache = request =>
     return response;
   });
 
-const tryClearCache = cacheKey => {
-  if (cacheKey !== CACHE_NAME) {
-    return caches.delete(cacheKey);
-  }
-
-  return Promise.resolve(false);
-};
-
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(keyList => Promise.all(keyList.map(tryClearCache)))
-  );
-});
-
 self.addEventListener("fetch", event => {
   if (event.request.url.startsWith("https://api.punkapi.com")) {
     // Cache API requests
