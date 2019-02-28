@@ -6,6 +6,8 @@ export const Wrapper = styled.header`
   position: sticky;
   top: 0;
   padding: 2rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 
   background: #5491f7;
   background: linear-gradient(to left, #9675ff, #5491f7);
@@ -14,15 +16,24 @@ export const Wrapper = styled.header`
   color: #fff;
 
   > div {
-    display: flex;
-    align-items: center;
+    position: relative;
     max-width: 600px;
     margin: auto;
 
     a {
+      position: absolute;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-right: 1rem;
+
       color: #fff;
       font-size: 24px;
-      margin-right: 1rem;
+      line-height: 1;
+    }
+
+    input {
+      padding-left: 5rem;
     }
   }
 `;
@@ -30,7 +41,7 @@ export const Wrapper = styled.header`
 export const SearchBox = styled.input`
   display: block;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 2rem 3rem;
   border-radius: 20px;
 
   background: none;
@@ -39,7 +50,7 @@ export const SearchBox = styled.input`
 
   font-size: inherit;
   color: #fff;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(84, 145, 247, 0.2);
 
   ::placeholder {

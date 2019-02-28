@@ -14,6 +14,8 @@ export const Header = styled.header`
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(84, 145, 247, 0.2);
+  border-bottom-left-radius: 20%;
+  border-bottom-right-radius: 20%;
 
   h1 {
     position: relative;
@@ -64,7 +66,8 @@ export const Header = styled.header`
 `;
 
 export const Content = styled.main`
-  transform: translateY(-7.5rem);
+  position: relative;
+  top: -75px;
 
   section {
     padding: 1rem 0;
@@ -102,6 +105,7 @@ export const CardTitle = styled.h2`
   padding-bottom: 1rem;
   margin-bottom: 1rem;
   font-weight: 500;
+  opacity: 0.5;
 `;
 
 export const Description = styled.div``;
