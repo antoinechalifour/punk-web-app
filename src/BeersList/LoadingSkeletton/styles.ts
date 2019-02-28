@@ -9,12 +9,12 @@ export const Wrapper = styled.ul`
 
   li {
     padding: 0.5rem;
-    flex-basis: 50%;
+    flex-basis: 100%;
   }
 
   @media (min-width: 768px) {
     li {
-      flex-basis: 100%;
+      flex-basis: 50%;
     }
   }
 `;
