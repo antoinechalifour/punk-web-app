@@ -57,10 +57,10 @@ export const ResultList = styled.ul`
 
   > li {
     flex-basis: 100%;
+    overflow: hidden;
 
     @media (min-width: 768px) {
       flex-basis: 50%;
-      overflow: hidden;
     }
   }
 `;
