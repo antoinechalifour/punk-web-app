@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const BeerName = styled.h1`
   margin-bottom: 1.5rem;
+  padding: 0 2.5rem;
 
   font-size: 2.5rem;
   text-transform: uppercase;

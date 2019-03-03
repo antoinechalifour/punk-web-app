@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const BeersList = styled.ul`
-  padding: 2rem 0;
   max-width: 800px;
   margin: auto;
 

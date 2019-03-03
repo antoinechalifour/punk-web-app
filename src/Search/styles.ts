@@ -45,7 +45,6 @@ export const Instructions = styled.p`
 `;
 
 export const ResultList = styled.ul`
-  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
 
