@@ -17,7 +17,7 @@ export function createStore(): BeersStore {
   const api = createApi();
   const paginationSubject$ = new BehaviorSubject(undefined);
   const pagination$ = paginationSubject$.pipe(
-    throttleTime(2000),
+    throttleTime(100),
     scan<undefined, number>(acc => acc + 1, 0)
   );
 
