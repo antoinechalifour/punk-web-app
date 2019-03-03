@@ -1,12 +1,18 @@
 import React from "react";
+import { FiSearch } from "react-icons/fi";
 
 import { BeersStore, BeerStoreState, initialState } from "./store/index";
 import { BeerPreview } from "../BeerPreview";
-import { BeersList } from "./styles";
-import { Header } from "./Header";
+import { BeersList, SearchButton } from "./styles";
 import { InfiniteList } from "../ui/InfiniteList";
 import { useObservable } from "../hooks/useObservable";
 import { LoadingSkelleton } from "./LoadingSkeletton";
+import {
+  AppBar,
+  AppBarContent,
+  AppBarActions,
+  AppBarTitle
+} from "../ui/AppBar";
 
 export interface BeersProps {
   store: BeersStore;
@@ -20,7 +26,16 @@ export const Beers: React.FunctionComponent<BeersProps> = ({ store }) => {
 
   return (
     <main>
-      <Header />
+      <AppBar>
+        <AppBarContent>
+          <AppBarTitle>Punk Web App</AppBarTitle>
+          <AppBarActions>
+            <SearchButton>
+              <FiSearch />
+            </SearchButton>
+          </AppBarActions>
+        </AppBarContent>
+      </AppBar>
       {state === "mounting" ? (
         <LoadingSkelleton />
       ) : (

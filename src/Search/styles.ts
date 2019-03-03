@@ -2,53 +2,31 @@ import styled from "styled-components";
 
 import noResults from "./no-results.png";
 
-export const Wrapper = styled.header`
-  position: sticky;
-  top: 0;
-  padding: 2rem;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+export const SearchContainer = styled.div`
+  position: relative;
+  flex: 1;
 
-  background: #5491f7;
-  background: linear-gradient(to left, #9675ff, #5491f7);
+  a {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 1rem;
+  }
 
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(84, 145, 247, 0.2);
-  color: #fff;
-
-  > div {
-    position: relative;
-    max-width: 600px;
-    margin: auto;
-
-    a {
-      position: absolute;
-      left: 1.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      margin-right: 1rem;
-
-      color: #fff;
-      font-size: 24px;
-      line-height: 1;
-    }
-
-    input {
-      padding-left: 5rem;
-    }
+  input {
+    padding-left: 5rem;
   }
 `;
 
 export const SearchBox = styled.input`
-  display: block;
+  all: unset;
   width: 100%;
-  padding: 2rem 3rem;
+  box-sizing: border-box;
+  padding: 1.2rem 3rem;
   border-radius: 20px;
 
-  background: none;
-  outline: none;
-  border: none;
-
-  font-size: inherit;
+  font-size: 16px;
   color: #fff;
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(84, 145, 247, 0.2);

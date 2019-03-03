@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Beer } from "../../../types";
-import { Image as BeerAvatar } from "../../styles";
+import { Image as BeerAvatar } from "./styles";
 
 export interface ImageProps {
   beer: Beer;

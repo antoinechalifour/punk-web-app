@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const BeersList = styled.ul`
   padding: 2rem 0;
@@ -14,5 +15,20 @@ export const BeersList = styled.ul`
       flex-basis: 50%;
       overflow: hidden;
     }
+  }
+`;
+
+export const SearchButton = styled(Link).attrs({
+  to: "/search"
+})`
+  position: absolute;
+  right: 2rem;
+  top: 2.5rem;
+  display: block;
+  all: unset;
+  line-height: 1;
+
+  svg {
+    color: #fff;
   }
 `;

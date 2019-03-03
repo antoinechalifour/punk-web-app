@@ -1,19 +1,19 @@
 import React, { useRef } from "react";
-import { FiArrowLeft } from "react-icons/fi";
 
 import { useObservable } from "../hooks/useObservable";
 import {
-  Wrapper,
   SearchBox,
   Instructions,
   ResultList,
   NoResults,
   NoResultsImage,
-  NoResultsMessage
+  NoResultsMessage,
+  SearchContainer
 } from "./styles";
 import { SearchStore, createSearchStore } from "./Store";
 import { BeerPreview } from "../BeerPreview";
-import { Link } from "react-router-dom";
+import { AppBar, AppBarContent } from "../ui/AppBar";
+import { BackLink } from "../ui/BackLink";
 
 export interface SearchProps {}
 
@@ -34,17 +34,17 @@ export const Search: React.FunctionComponent<SearchProps> = () => {
 
   return (
     <>
-      <Wrapper>
-        <div>
-          <Link to="/">
-            <FiArrowLeft />
-          </Link>
-          <SearchBox
-            placeholder="Search for a beer..."
-            onChange={e => getStore().search(e.target.value)}
-          />
-        </div>
-      </Wrapper>
+      <AppBar>
+        <AppBarContent>
+          <SearchContainer>
+            <BackLink to="/" />
+            <SearchBox
+              placeholder="Search for a beer..."
+              onChange={e => getStore().search(e.target.value)}
+            />
+          </SearchContainer>
+        </AppBarContent>
+      </AppBar>
       {results.beers === null ? (
         <Instructions>Start typing to search your favorite beers!</Instructions>
       ) : results.beers.length === 0 ? (

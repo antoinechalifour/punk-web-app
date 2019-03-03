@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Beer } from "../../../types";
-import { InfoGroup } from "../../styles";
+import { InfoGroup } from "./styles";
 
 export interface GeneralInformationProps {
   beer: Beer;

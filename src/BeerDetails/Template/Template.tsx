@@ -1,19 +1,18 @@
 import * as React from "react";
-import { FiArrowLeft } from "react-icons/fi";
 
+import { AppBar, AppBarContent } from "../../ui/AppBar";
+import { BackLink } from "../../ui/BackLink";
+import { Card, CardContent, CardTitle } from "../../ui/Card";
 import {
   Container,
-  Header,
   Content,
-  Card,
-  CardTitle,
   Description,
   GeneralInfo,
+  Header,
   BrewerTips,
   IngredientCategory,
   IngredientList
-} from "../styles";
-import { Link } from "react-router-dom";
+} from "./styles";
 
 export interface TemplateProps {
   header: JSX.Element;
@@ -39,36 +38,40 @@ export const Template: React.FunctionComponent<TemplateProps> = ({
   foodPairing
 }) => (
   <Container>
-    <Header>
-      <Link to="/">
-        <FiArrowLeft />
-      </Link>
-      {header}
-    </Header>
+    <AppBar>
+      <AppBarContent>
+        <BackLink to="/" />
+        <Header>{header}</Header>
+      </AppBarContent>
+    </AppBar>
 
     <Content>
       {image}
 
       <section>
         <Card>
-          <CardTitle>About this beer</CardTitle>
-          <Description>{description}</Description>
+          <CardContent>
+            <CardTitle>About this beer</CardTitle>
+            <Description>{description}</Description>
+          </CardContent>
         </Card>
       </section>
 
       <section>
         <Card>
-          <CardTitle>General Information</CardTitle>
-
-          <GeneralInfo>{generalInformation}</GeneralInfo>
+          <CardContent>
+            <CardTitle>General Information</CardTitle>
+            <GeneralInfo>{generalInformation}</GeneralInfo>
+          </CardContent>
         </Card>
       </section>
 
       <section>
         <Card>
-          <CardTitle>This beer is best served with</CardTitle>
-
-          <div>{foodPairing}</div>
+          <CardContent>
+            <CardTitle>This beer is best served with</CardTitle>
+            <div>{foodPairing}</div>
+          </CardContent>
         </Card>
       </section>
 
@@ -79,16 +82,18 @@ export const Template: React.FunctionComponent<TemplateProps> = ({
 
       <section>
         <Card>
-          <CardTitle>Ingredients</CardTitle>
+          <CardContent>
+            <CardTitle>Ingredients</CardTitle>
 
-          <IngredientCategory>Malts</IngredientCategory>
-          <IngredientList>{malts}</IngredientList>
+            <IngredientCategory>Malts</IngredientCategory>
+            <IngredientList>{malts}</IngredientList>
 
-          <IngredientCategory>Hops</IngredientCategory>
-          <IngredientList>{hops}</IngredientList>
+            <IngredientCategory>Hops</IngredientCategory>
+            <IngredientList>{hops}</IngredientList>
 
-          <IngredientCategory>Yeast</IngredientCategory>
-          <IngredientList>{yeast}</IngredientList>
+            <IngredientCategory>Yeast</IngredientCategory>
+            <IngredientList>{yeast}</IngredientList>
+          </CardContent>
         </Card>
       </section>
     </Content>

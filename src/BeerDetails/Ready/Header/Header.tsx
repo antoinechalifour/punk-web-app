@@ -1,7 +1,7 @@
 import React from "react";
-import { TextBlock } from "react-placeholder/lib/placeholders";
 
 import { Beer } from "../../../types";
+import { BeerName, Tagline } from "./styles";
 
 export interface HeaderProps {
   beer: Beer;
@@ -9,7 +9,7 @@ export interface HeaderProps {
 
 export const Header: React.FunctionComponent<HeaderProps> = ({ beer }) => (
   <>
-    <h1>{beer.name}</h1>
-    <p>{beer.tagline}</p>
+    <BeerName>{beer.name}</BeerName>
+    <Tagline>{beer.tagline}</Tagline>
   </>
 );
