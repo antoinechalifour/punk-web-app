@@ -6,6 +6,7 @@ import { BeerApi } from "../api";
 export interface SearchResults {
   query: string;
   beers: Beer[] | null;
+  isSearching: boolean;
 }
 
 interface SearchStoreOptions {
@@ -24,7 +25,17 @@ export function createSearchStore({ api }: SearchStoreOptions): SearchStore {
     filter(query => query.length < 2),
     map(query => ({
       query,
-      beers: null
+      beers: null,
+      isSearching: false
+    }))
+  );
+
+  const searching$ = query$.pipe(
+    filter(query => query.length >= 2),
+    map(query => ({
+      query,
+      beers: null,
+      isSearching: true
     }))
   );
 
@@ -34,12 +45,13 @@ export function createSearchStore({ api }: SearchStoreOptions): SearchStore {
     switchMap(query =>
       api.searchBeers(query).then(beers => ({
         query,
-        beers
+        beers,
+        isSearching: false
       }))
     )
   );
 
-  const results$ = merge(abort$, search$);
+  const results$ = merge(abort$, searching$, search$);
 
   return {
     results$,

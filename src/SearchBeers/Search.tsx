@@ -6,6 +6,7 @@ import {
   SearchBox,
   Instructions,
   ResultList,
+  Loader,
   NoResults,
   NoResultsImage,
   NoResultsMessage,
@@ -24,7 +25,8 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
   );
   const results = useObservable(store.results$, {
     beers: null,
-    query: ""
+    query: "",
+    isSearching: false
   });
 
   return (
@@ -37,6 +39,7 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
               placeholder="Search for a beer..."
               onChange={e => store.search(e.target.value)}
             />
+            {results.isSearching && <Loader />}
           </SearchContainer>
         </AppBarContent>
       </AppBar>

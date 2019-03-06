@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import noResults from "./no-results.png";
 
@@ -17,6 +17,28 @@ export const SearchContainer = styled.div`
   input {
     padding-left: 5rem;
   }
+`;
+
+const loaderAnimation = keyframes`
+  0%, 100% { 
+    transform: translateY(-50%) scale(1.0);
+  } 50% { 
+    transform: translateY(-50%) scale(0.3);
+  }
+`;
+
+export const Loader = styled.div`
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  opacity: 0.6;
+  transform-origin: center center;
+  border-radius: 50%;
+
+  animation: ${loaderAnimation} 2s linear infinite;
 `;
 
 export const SearchBox = styled.input`
