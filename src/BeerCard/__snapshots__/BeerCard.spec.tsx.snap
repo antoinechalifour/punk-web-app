@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      <styled.div>
+        <styled.img
+          alt="Bottle of Punk IPA"
+          src="http://example.com/picture.png"
+        />
+        <styled.div>
+          <styled.p>
+            Punk IPA
+          </styled.p>
+          <styled.p>
+            Post modern classic
+          </styled.p>
+          <Styled(Link)
+            to="/beers/1"
+          >
+            Read more
+          </Styled(Link)>
+        </styled.div>
+      </styled.div>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

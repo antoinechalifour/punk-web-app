@@ -28,7 +28,7 @@ export const BeerCard: React.FunctionComponent<BeerCardProps> = ({
     <Card>
       <CardContent>
         <InnerLayout>
-          <Image src={imageUrl} alt={`Bottle of ${imageUrl}`} />
+          <Image src={imageUrl} alt={`Bottle of ${name}`} />
           <Details>
             <Name>{name}</Name>
             <TagLine>{tagline}</TagLine>

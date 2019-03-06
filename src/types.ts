@@ -9,7 +9,6 @@ export interface Beer {
   srm: number;
   ebc: number;
   kind: string;
-  color: string;
   ph: number;
   malts: {
     name: string;

@@ -1,0 +1,663 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<Template
+  brewersTips={
+    <BrewerTips
+      beer={
+        Object {
+          "alcoholByVolume": 4.5,
+          "brewerTips": "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+          "contributedBy": "Sam Mason <samjbmason>",
+          "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+          "ebc": 20,
+          "firstBrewed": "09/2007",
+          "foodPairing": Array [
+            "Spicy chicken tikka masala",
+            "Grilled chicken quesadilla",
+            "Caramel toffee cake",
+          ],
+          "hops": Array [
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "end",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Cascade",
+            },
+          ],
+          "id": 1,
+          "imageUrl": "https://images.punkapi.com/v2/keg.png",
+          "kind": "",
+          "malts": Array [
+            Object {
+              "amount": "3.3 kilograms",
+              "name": "Maris Otter Extra Pale",
+            },
+            Object {
+              "amount": "0.2 kilograms",
+              "name": "Caramalt",
+            },
+            Object {
+              "amount": "0.4 kilograms",
+              "name": "Munich",
+            },
+          ],
+          "name": "Buzz",
+          "ph": 4.4,
+          "srm": 10,
+          "tagline": "A Real Bitter Experience.",
+          "yeast": "Wyeast 1056 - American Ale™",
+        }
+      }
+    />
+  }
+  description={
+    <Description
+      beer={
+        Object {
+          "alcoholByVolume": 4.5,
+          "brewerTips": "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+          "contributedBy": "Sam Mason <samjbmason>",
+          "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+          "ebc": 20,
+          "firstBrewed": "09/2007",
+          "foodPairing": Array [
+            "Spicy chicken tikka masala",
+            "Grilled chicken quesadilla",
+            "Caramel toffee cake",
+          ],
+          "hops": Array [
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "end",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Cascade",
+            },
+          ],
+          "id": 1,
+          "imageUrl": "https://images.punkapi.com/v2/keg.png",
+          "kind": "",
+          "malts": Array [
+            Object {
+              "amount": "3.3 kilograms",
+              "name": "Maris Otter Extra Pale",
+            },
+            Object {
+              "amount": "0.2 kilograms",
+              "name": "Caramalt",
+            },
+            Object {
+              "amount": "0.4 kilograms",
+              "name": "Munich",
+            },
+          ],
+          "name": "Buzz",
+          "ph": 4.4,
+          "srm": 10,
+          "tagline": "A Real Bitter Experience.",
+          "yeast": "Wyeast 1056 - American Ale™",
+        }
+      }
+    />
+  }
+  foodPairing={
+    <FoodPairing
+      beer={
+        Object {
+          "alcoholByVolume": 4.5,
+          "brewerTips": "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+          "contributedBy": "Sam Mason <samjbmason>",
+          "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+          "ebc": 20,
+          "firstBrewed": "09/2007",
+          "foodPairing": Array [
+            "Spicy chicken tikka masala",
+            "Grilled chicken quesadilla",
+            "Caramel toffee cake",
+          ],
+          "hops": Array [
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "end",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Cascade",
+            },
+          ],
+          "id": 1,
+          "imageUrl": "https://images.punkapi.com/v2/keg.png",
+          "kind": "",
+          "malts": Array [
+            Object {
+              "amount": "3.3 kilograms",
+              "name": "Maris Otter Extra Pale",
+            },
+            Object {
+              "amount": "0.2 kilograms",
+              "name": "Caramalt",
+            },
+            Object {
+              "amount": "0.4 kilograms",
+              "name": "Munich",
+            },
+          ],
+          "name": "Buzz",
+          "ph": 4.4,
+          "srm": 10,
+          "tagline": "A Real Bitter Experience.",
+          "yeast": "Wyeast 1056 - American Ale™",
+        }
+      }
+    />
+  }
+  generalInformation={
+    <GeneralInformation
+      beer={
+        Object {
+          "alcoholByVolume": 4.5,
+          "brewerTips": "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+          "contributedBy": "Sam Mason <samjbmason>",
+          "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+          "ebc": 20,
+          "firstBrewed": "09/2007",
+          "foodPairing": Array [
+            "Spicy chicken tikka masala",
+            "Grilled chicken quesadilla",
+            "Caramel toffee cake",
+          ],
+          "hops": Array [
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "end",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Cascade",
+            },
+          ],
+          "id": 1,
+          "imageUrl": "https://images.punkapi.com/v2/keg.png",
+          "kind": "",
+          "malts": Array [
+            Object {
+              "amount": "3.3 kilograms",
+              "name": "Maris Otter Extra Pale",
+            },
+            Object {
+              "amount": "0.2 kilograms",
+              "name": "Caramalt",
+            },
+            Object {
+              "amount": "0.4 kilograms",
+              "name": "Munich",
+            },
+          ],
+          "name": "Buzz",
+          "ph": 4.4,
+          "srm": 10,
+          "tagline": "A Real Bitter Experience.",
+          "yeast": "Wyeast 1056 - American Ale™",
+        }
+      }
+    />
+  }
+  header={
+    <Header
+      beer={
+        Object {
+          "alcoholByVolume": 4.5,
+          "brewerTips": "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+          "contributedBy": "Sam Mason <samjbmason>",
+          "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+          "ebc": 20,
+          "firstBrewed": "09/2007",
+          "foodPairing": Array [
+            "Spicy chicken tikka masala",
+            "Grilled chicken quesadilla",
+            "Caramel toffee cake",
+          ],
+          "hops": Array [
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "end",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Cascade",
+            },
+          ],
+          "id": 1,
+          "imageUrl": "https://images.punkapi.com/v2/keg.png",
+          "kind": "",
+          "malts": Array [
+            Object {
+              "amount": "3.3 kilograms",
+              "name": "Maris Otter Extra Pale",
+            },
+            Object {
+              "amount": "0.2 kilograms",
+              "name": "Caramalt",
+            },
+            Object {
+              "amount": "0.4 kilograms",
+              "name": "Munich",
+            },
+          ],
+          "name": "Buzz",
+          "ph": 4.4,
+          "srm": 10,
+          "tagline": "A Real Bitter Experience.",
+          "yeast": "Wyeast 1056 - American Ale™",
+        }
+      }
+    />
+  }
+  hops={
+    <Hops
+      beer={
+        Object {
+          "alcoholByVolume": 4.5,
+          "brewerTips": "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+          "contributedBy": "Sam Mason <samjbmason>",
+          "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+          "ebc": 20,
+          "firstBrewed": "09/2007",
+          "foodPairing": Array [
+            "Spicy chicken tikka masala",
+            "Grilled chicken quesadilla",
+            "Caramel toffee cake",
+          ],
+          "hops": Array [
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "end",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Cascade",
+            },
+          ],
+          "id": 1,
+          "imageUrl": "https://images.punkapi.com/v2/keg.png",
+          "kind": "",
+          "malts": Array [
+            Object {
+              "amount": "3.3 kilograms",
+              "name": "Maris Otter Extra Pale",
+            },
+            Object {
+              "amount": "0.2 kilograms",
+              "name": "Caramalt",
+            },
+            Object {
+              "amount": "0.4 kilograms",
+              "name": "Munich",
+            },
+          ],
+          "name": "Buzz",
+          "ph": 4.4,
+          "srm": 10,
+          "tagline": "A Real Bitter Experience.",
+          "yeast": "Wyeast 1056 - American Ale™",
+        }
+      }
+    />
+  }
+  image={
+    <Image
+      beer={
+        Object {
+          "alcoholByVolume": 4.5,
+          "brewerTips": "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+          "contributedBy": "Sam Mason <samjbmason>",
+          "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+          "ebc": 20,
+          "firstBrewed": "09/2007",
+          "foodPairing": Array [
+            "Spicy chicken tikka masala",
+            "Grilled chicken quesadilla",
+            "Caramel toffee cake",
+          ],
+          "hops": Array [
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "end",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Cascade",
+            },
+          ],
+          "id": 1,
+          "imageUrl": "https://images.punkapi.com/v2/keg.png",
+          "kind": "",
+          "malts": Array [
+            Object {
+              "amount": "3.3 kilograms",
+              "name": "Maris Otter Extra Pale",
+            },
+            Object {
+              "amount": "0.2 kilograms",
+              "name": "Caramalt",
+            },
+            Object {
+              "amount": "0.4 kilograms",
+              "name": "Munich",
+            },
+          ],
+          "name": "Buzz",
+          "ph": 4.4,
+          "srm": 10,
+          "tagline": "A Real Bitter Experience.",
+          "yeast": "Wyeast 1056 - American Ale™",
+        }
+      }
+    />
+  }
+  malts={
+    <Malts
+      beer={
+        Object {
+          "alcoholByVolume": 4.5,
+          "brewerTips": "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+          "contributedBy": "Sam Mason <samjbmason>",
+          "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+          "ebc": 20,
+          "firstBrewed": "09/2007",
+          "foodPairing": Array [
+            "Spicy chicken tikka masala",
+            "Grilled chicken quesadilla",
+            "Caramel toffee cake",
+          ],
+          "hops": Array [
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "end",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Cascade",
+            },
+          ],
+          "id": 1,
+          "imageUrl": "https://images.punkapi.com/v2/keg.png",
+          "kind": "",
+          "malts": Array [
+            Object {
+              "amount": "3.3 kilograms",
+              "name": "Maris Otter Extra Pale",
+            },
+            Object {
+              "amount": "0.2 kilograms",
+              "name": "Caramalt",
+            },
+            Object {
+              "amount": "0.4 kilograms",
+              "name": "Munich",
+            },
+          ],
+          "name": "Buzz",
+          "ph": 4.4,
+          "srm": 10,
+          "tagline": "A Real Bitter Experience.",
+          "yeast": "Wyeast 1056 - American Ale™",
+        }
+      }
+    />
+  }
+  yeast={
+    <Yeast
+      beer={
+        Object {
+          "alcoholByVolume": 4.5,
+          "brewerTips": "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+          "contributedBy": "Sam Mason <samjbmason>",
+          "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+          "ebc": 20,
+          "firstBrewed": "09/2007",
+          "foodPairing": Array [
+            "Spicy chicken tikka masala",
+            "Grilled chicken quesadilla",
+            "Caramel toffee cake",
+          ],
+          "hops": Array [
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "start",
+              "amount": "25 grams",
+              "attribute": "bitter",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Fuggles",
+            },
+            Object {
+              "add": "middle",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "First Gold",
+            },
+            Object {
+              "add": "end",
+              "amount": "37.5 grams",
+              "attribute": "flavour",
+              "name": "Cascade",
+            },
+          ],
+          "id": 1,
+          "imageUrl": "https://images.punkapi.com/v2/keg.png",
+          "kind": "",
+          "malts": Array [
+            Object {
+              "amount": "3.3 kilograms",
+              "name": "Maris Otter Extra Pale",
+            },
+            Object {
+              "amount": "0.2 kilograms",
+              "name": "Caramalt",
+            },
+            Object {
+              "amount": "0.4 kilograms",
+              "name": "Munich",
+            },
+          ],
+          "name": "Buzz",
+          "ph": 4.4,
+          "srm": 10,
+          "tagline": "A Real Bitter Experience.",
+          "yeast": "Wyeast 1056 - American Ale™",
+        }
+      }
+    />
+  }
+/>
+`;

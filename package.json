@@ -37,10 +37,19 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/enzyme": "^3.9.0",
     "@types/react-router-dom": "^4.3.1",
     "@types/styled-components": "^4.1.8",
     "@types/tinycolor2": "^1.4.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "enzyme-to-json": "^3.3.5",
     "sw-precache": "^5.2.1"
   },
-  "proxy": "https://api.punkapi.com/v2"
+  "proxy": "https://api.punkapi.com/v2",
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  }
 }

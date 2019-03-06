@@ -8,6 +8,10 @@ export interface BeerApi {
   searchBeers: (query: string) => Promise<Beer[]>;
 }
 
+export interface BeerApiOptions {
+  apiBase: string;
+}
+
 class NetworkError extends Error {
   public response?: Response;
 }
@@ -23,23 +27,23 @@ function throwIfNotOk(response: Response) {
   return response;
 }
 
-export function createApi(): BeerApi {
+export function createApi({ apiBase }: BeerApiOptions): BeerApi {
   return {
     fetchBeer(id) {
-      return fetch(`https://api.punkapi.com/v2/beers/${id}`)
+      return fetch(`${apiBase}/beers/${id}`)
         .then(throwIfNotOk)
         .then(response => response.json() as Promise<ApiBeer[] & { length: 1 }>)
         .then(beers => beers[0])
         .then(mapBeer);
     },
     fetchBeers(page) {
-      return fetch(`https://api.punkapi.com/v2/beers?page=${page}`)
+      return fetch(`${apiBase}/beers?page=${page}`)
         .then(throwIfNotOk)
         .then(response => response.json() as Promise<ApiBeer[]>)
         .then(beers => beers.map(mapBeer));
     },
     searchBeers(query) {
-      return fetch(`https://api.punkapi.com/v2/beers?beer_name=${query}`)
+      return fetch(`${apiBase}/beers?beer_name=${query}`)
         .then(throwIfNotOk)
         .then(response => response.json() as Promise<ApiBeer[]>)
         .then(beers => beers.map(mapBeer));

@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<styled.div>
+  <styled.header>
+    <styled.div>
+      <Styled(Link)
+        to="/"
+      />
+      <styled.header>
+        <div>
+          test - header
+        </div>
+      </styled.header>
+    </styled.div>
+  </styled.header>
+  <styled.main>
+    <div>
+      test - image
+    </div>
+    <section>
+      <styled.div>
+        <styled.div>
+          <styled.h2>
+            About this beer
+          </styled.h2>
+          <styled.div>
+            <div>
+              test - description
+            </div>
+          </styled.div>
+        </styled.div>
+      </styled.div>
+    </section>
+    <section>
+      <styled.div>
+        <styled.div>
+          <styled.h2>
+            General Information
+          </styled.h2>
+          <styled.div>
+            <div>
+              test - generalInformation
+            </div>
+          </styled.div>
+        </styled.div>
+      </styled.div>
+    </section>
+    <section>
+      <styled.div>
+        <styled.div>
+          <styled.h2>
+            This beer is best served with
+          </styled.h2>
+          <div>
+            <div>
+              test - foodPairing
+            </div>
+          </div>
+        </styled.div>
+      </styled.div>
+    </section>
+    <styled.blockquote>
+      <div>
+        Brewer's tip
+      </div>
+      <div>
+        test - brewersTips
+      </div>
+    </styled.blockquote>
+    <section>
+      <styled.div>
+        <styled.div>
+          <styled.h2>
+            Ingredients
+          </styled.h2>
+          <styled.div>
+            Malts
+          </styled.div>
+          <styled.ul>
+            <div>
+              test - malts
+            </div>
+          </styled.ul>
+          <styled.div>
+            Hops
+          </styled.div>
+          <styled.ul>
+            <div>
+              test - hops
+            </div>
+          </styled.ul>
+          <styled.div>
+            Yeast
+          </styled.div>
+          <styled.ul>
+            <div>
+              test - yeast
+            </div>
+          </styled.ul>
+        </styled.div>
+      </styled.div>
+    </section>
+  </styled.main>
+</styled.div>
+`;

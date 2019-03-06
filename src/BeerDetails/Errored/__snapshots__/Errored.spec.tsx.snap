@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<styled.div>
+  <styled.img />
+  <h1>
+    Gloops
+  </h1>
+  <styled.p>
+    The beer was not found.
+  </styled.p>
+  <Link
+    replace={false}
+    to="/"
+  >
+    Take me back home
+  </Link>
+</styled.div>
+`;

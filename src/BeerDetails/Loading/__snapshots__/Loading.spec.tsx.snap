@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<Template
+  brewersTips={
+    <TextBlock
+      color="rgba(255, 255, 255, .2)"
+      rows={3}
+      widths={
+        Array [
+          97,
+          100,
+          94,
+          90,
+          98,
+          95,
+          98,
+          40,
+        ]
+      }
+    />
+  }
+  description={
+    <TextBlock
+      color="rgba(0, 0, 0, .1)"
+      rows={4}
+      widths={
+        Array [
+          97,
+          100,
+          94,
+          90,
+          98,
+          95,
+          98,
+          40,
+        ]
+      }
+    />
+  }
+  foodPairing={
+    <TextBlock
+      color="rgba(0, 0, 0, .1)"
+      rows={2}
+      widths={
+        Array [
+          97,
+          100,
+          94,
+          90,
+          98,
+          95,
+          98,
+          40,
+        ]
+      }
+    />
+  }
+  generalInformation={
+    <TextBlock
+      color="rgba(0, 0, 0, .1)"
+      rows={2}
+      widths={
+        Array [
+          97,
+          100,
+          94,
+          90,
+          98,
+          95,
+          98,
+          40,
+        ]
+      }
+    />
+  }
+  header={
+    <div>
+      <TextBlock
+        color="rgba(255, 255, 255, .2)"
+        rows={2}
+        widths={
+          Array [
+            97,
+            100,
+            94,
+            90,
+            98,
+            95,
+            98,
+            40,
+          ]
+        }
+      />
+    </div>
+  }
+  hops={
+    <TextBlock
+      color="rgba(0, 0, 0, .1)"
+      rows={5}
+      widths={
+        Array [
+          97,
+          100,
+          94,
+          90,
+          98,
+          95,
+          98,
+          40,
+        ]
+      }
+    />
+  }
+  image={
+    <RoundShape
+      color="#f5f5f5"
+      style={
+        Object {
+          "boxShadow": "0 1px 3px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(84, 145, 247, 0.2)",
+          "height": 150,
+          "margin": "auto",
+          "width": 150,
+        }
+      }
+    />
+  }
+  malts={
+    <TextBlock
+      color="rgba(0, 0, 0, .1)"
+      rows={3}
+      widths={
+        Array [
+          97,
+          100,
+          94,
+          90,
+          98,
+          95,
+          98,
+          40,
+        ]
+      }
+    />
+  }
+  yeast={
+    <TextBlock
+      color="rgba(0, 0, 0, .1)"
+      rows={1}
+      widths={
+        Array [
+          97,
+          100,
+          94,
+          90,
+          98,
+          95,
+          98,
+          40,
+        ]
+      }
+    />
+  }
+/>
+`;
