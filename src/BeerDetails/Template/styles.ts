@@ -30,7 +30,7 @@ export const Header = styled.header`
 
 export const Content = styled.main`
   position: relative;
-  top: -75px;
+  margin-top: -75px;
 
   section {
     padding: 1rem 0;
