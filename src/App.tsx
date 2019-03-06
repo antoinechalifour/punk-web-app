@@ -2,12 +2,19 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import { Beers } from "./BeersList";
-import { createStore } from "./BeersList/store/Store";
-import { BeerDetails } from "./BeerDetails";
-import { Search } from "./Search";
-
-const store = createStore();
+import {
+  Beers,
+  registerDependencies as registerBeerListDependencies
+} from "./BeersList";
+import {
+  BeerDetails,
+  registerDependencies as registerBeerDependencies
+} from "./BeerDetails";
+import {
+  Search,
+  registerDependencies as registerSearchDependencies
+} from "./Search";
+import { DiScope } from "./Di/DiScope";
 
 export function App() {
   return (
@@ -16,11 +23,26 @@ export function App() {
         <Switch>
           <Route
             path="/beers/:id"
-            render={({ match }) => <BeerDetails id={match.params.id} />}
+            render={({ match }) => (
+              <DiScope
+                registerDependencies={registerBeerDependencies(match.params.id)}
+              >
+                <BeerDetails />
+              </DiScope>
+            )}
           />
-          <Route path="/search" render={() => <Search />} />
+          <Route
+            path="/search"
+            render={() => (
+              <DiScope registerDependencies={registerSearchDependencies()}>
+                <Search />
+              </DiScope>
+            )}
+          />
           <Route>
-            <Beers store={store} />
+            <DiScope registerDependencies={registerBeerListDependencies()}>
+              <Beers />
+            </DiScope>
           </Route>
         </Switch>
       </BrowserRouter>

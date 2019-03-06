@@ -13,12 +13,15 @@ import {
   AppBarActions,
   AppBarTitle
 } from "../ui/AppBar";
+import { useDependency } from "../hooks/useDependency";
 
-export interface BeersProps {
-  store: BeersStore;
-}
+export interface BeersProps {}
 
-export const Beers: React.FunctionComponent<BeersProps> = ({ store }) => {
+export const Beers: React.FunctionComponent<BeersProps> = ({}) => {
+  const store = useDependency(container =>
+    container.resolve<BeersStore>("beersService")
+  );
+
   const { state, beers } = useObservable<BeerStoreState>(
     store.state$,
     initialState

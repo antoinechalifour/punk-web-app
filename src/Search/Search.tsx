@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import { useObservable } from "../hooks/useObservable";
 import {
@@ -10,27 +10,22 @@ import {
   NoResultsMessage,
   SearchContainer
 } from "./styles";
-import { SearchStore, createSearchStore } from "./Store";
+import { SearchStore } from "./Store";
 import { BeerPreview } from "../BeerPreview";
 import { AppBar, AppBarContent } from "../ui/AppBar";
 import { BackLink } from "../ui/BackLink";
+import { useDependency } from "../hooks/useDependency";
 
 export interface SearchProps {}
 
 export const Search: React.FunctionComponent<SearchProps> = () => {
-  const store = useRef<SearchStore | null>(null);
-  const results = useObservable(getStore().results$, {
+  const store = useDependency(container =>
+    container.resolve<SearchStore>("searchService")
+  );
+  const results = useObservable(store.results$, {
     beers: null,
     query: ""
   });
-
-  function getStore() {
-    if (!store.current) {
-      store.current = createSearchStore();
-    }
-
-    return store.current;
-  }
 
   return (
     <>
@@ -40,7 +35,7 @@ export const Search: React.FunctionComponent<SearchProps> = () => {
             <BackLink to="/" />
             <SearchBox
               placeholder="Search for a beer..."
-              onChange={e => getStore().search(e.target.value)}
+              onChange={e => store.search(e.target.value)}
             />
           </SearchContainer>
         </AppBarContent>

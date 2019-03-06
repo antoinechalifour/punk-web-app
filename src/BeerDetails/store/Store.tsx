@@ -1,6 +1,6 @@
 import { from, of } from "rxjs";
 
-import { createApi } from "../../api";
+import { BeerApi } from "../../api";
 import {
   BeerStore,
   BeerStoreState,
@@ -14,9 +14,12 @@ export const initialState: MountingState = {
   state: "mounting"
 };
 
-export function createStore(beerId: string): BeerStore {
-  const api = createApi();
+export interface Options {
+  beerId: string;
+  api: BeerApi;
+}
 
+export function createStore({ beerId, api }: Options): BeerStore {
   const loading$ = of<BeerStoreState>({ state: "loading" });
   const fetchBeer$ = from(api.fetchBeer(beerId)).pipe(
     map(

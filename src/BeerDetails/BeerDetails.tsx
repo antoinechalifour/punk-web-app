@@ -1,33 +1,23 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import { useObservable } from "../hooks/useObservable";
 import { useScrollReset } from "../hooks/useScrollReset";
 
-import { createStore, initialState } from "./store/Store";
+import { initialState } from "./store/Store";
 import { BeerStore, BeerStoreState } from "./store";
 import { Loading } from "./Loading";
 import { Errored } from "./Errored";
 import { Ready } from "./Ready";
+import { useDependency } from "../hooks/useDependency";
 
-export interface BeerDetailsProps {
-  id: string;
-}
+export interface BeerDetailsProps {}
 
-export const BeerDetails: React.FunctionComponent<BeerDetailsProps> = ({
-  id
-}) => {
+export const BeerDetails: React.FunctionComponent<BeerDetailsProps> = ({}) => {
   useScrollReset();
-
-  const store = useRef<BeerStore | null>(null);
-  const state = useObservable<BeerStoreState>(getStore().state$, initialState);
-
-  function getStore() {
-    if (!store.current) {
-      store.current = createStore(id);
-    }
-
-    return store.current;
-  }
+  const store = useDependency(container =>
+    container.resolve<BeerStore>("beerService")
+  );
+  const state = useObservable<BeerStoreState>(store.state$, initialState);
 
   if (state.state === "mounting" || state.state === "loading") {
     return <Loading />;

@@ -2,7 +2,7 @@ import { BehaviorSubject, ReplaySubject, of } from "rxjs";
 import { scan, throttleTime, switchMap, map, merge } from "rxjs/operators";
 
 import { Beer } from "../../types";
-import { createApi } from "../../api";
+import { BeerApi } from "../../api";
 import { BeersStore, BeerStoreState } from "./types";
 import {
   ActionLoad,
@@ -13,8 +13,11 @@ import {
 } from "./actions";
 import { beersReducer, initialState } from "./reducer";
 
-export function createStore(): BeersStore {
-  const api = createApi();
+export interface Options {
+  api: BeerApi;
+}
+
+export function createStore({ api }: Options): BeersStore {
   const paginationSubject$ = new BehaviorSubject(undefined);
   const pagination$ = paginationSubject$.pipe(
     throttleTime(100),
