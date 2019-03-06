@@ -19,8 +19,6 @@ export const BeerDetails: React.FunctionComponent<BeerDetailsProps> = ({}) => {
   );
   const state = useObservable<BeerStoreState>(store.state$, initialState);
 
-  console.log(store.state$);
-  console.log("Debug:", state);
   if (state.state === "mounting" || state.state === "loading") {
     return <Loading />;
   } else if (state.state === "errored") {
