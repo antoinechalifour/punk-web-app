@@ -11,9 +11,9 @@ import {
   registerDependencies as registerBeerDependencies
 } from "./BeerDetails";
 import {
-  Search,
+  SearchBeers,
   registerDependencies as registerSearchDependencies
-} from "./Search";
+} from "./SearchBeers";
 import { DiScope } from "./Di/DiScope";
 
 export function App() {
@@ -35,7 +35,7 @@ export function App() {
             path="/search"
             render={() => (
               <DiScope registerDependencies={registerSearchDependencies()}>
-                <Search />
+                <SearchBeers />
               </DiScope>
             )}
           />

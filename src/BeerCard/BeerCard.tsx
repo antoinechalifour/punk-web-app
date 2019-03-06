@@ -11,14 +11,14 @@ import {
   Link
 } from "./styles";
 
-export interface BeerPreviewProps {
+export interface BeerCardProps {
   imageUrl: string;
   name: string;
   tagline: string;
   id: number;
 }
 
-export const BeerPreview: React.FunctionComponent<BeerPreviewProps> = ({
+export const BeerCard: React.FunctionComponent<BeerCardProps> = ({
   id,
   imageUrl,
   name,

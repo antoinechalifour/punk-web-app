@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useDependency } from "../hooks/useDependency";
 import { useObservable } from "../hooks/useObservable";
 import {
   SearchBox,
@@ -11,14 +12,13 @@ import {
   SearchContainer
 } from "./styles";
 import { SearchStore } from "./Store";
-import { BeerPreview } from "../BeerPreview";
+import { BeerCard } from "../BeerCard";
 import { AppBar, AppBarContent } from "../ui/AppBar";
 import { BackLink } from "../ui/BackLink";
-import { useDependency } from "../hooks/useDependency";
 
-export interface SearchProps {}
+export interface SearchBeersProps {}
 
-export const Search: React.FunctionComponent<SearchProps> = () => {
+export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
   const store = useDependency(container =>
     container.resolve<SearchStore>("searchService")
   );
@@ -53,7 +53,7 @@ export const Search: React.FunctionComponent<SearchProps> = () => {
         <ResultList>
           {results.beers.map(beer => (
             <li key={beer.id}>
-              <BeerPreview
+              <BeerCard
                 id={beer.id}
                 imageUrl={beer.imageUrl}
                 name={beer.name}

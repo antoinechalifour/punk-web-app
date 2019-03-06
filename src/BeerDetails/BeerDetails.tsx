@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useDependency } from "../hooks/useDependency";
 import { useObservable } from "../hooks/useObservable";
 import { useScrollReset } from "../hooks/useScrollReset";
 
@@ -8,7 +9,6 @@ import { BeerStore, BeerStoreState } from "./store";
 import { Loading } from "./Loading";
 import { Errored } from "./Errored";
 import { Ready } from "./Ready";
-import { useDependency } from "../hooks/useDependency";
 
 export interface BeerDetailsProps {}
 

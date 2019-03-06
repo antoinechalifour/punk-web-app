@@ -1,11 +1,13 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
 
-import { BeersStore, BeerStoreState, initialState } from "./store/index";
-import { BeerPreview } from "../BeerPreview";
+import { useDependency } from "../hooks/useDependency";
+import { useObservable } from "../hooks/useObservable";
+
+import { BeersStore, BeerStoreState, initialState } from "./store";
+import { BeerCard } from "../BeerCard";
 import { BeersList, SearchButton } from "./styles";
 import { InfiniteList } from "../ui/InfiniteList";
-import { useObservable } from "../hooks/useObservable";
 import { LoadingSkelleton } from "./LoadingSkeletton";
 import {
   AppBar,
@@ -13,7 +15,6 @@ import {
   AppBarActions,
   AppBarTitle
 } from "../ui/AppBar";
-import { useDependency } from "../hooks/useDependency";
 
 export interface BeersProps {}
 
@@ -49,7 +50,7 @@ export const Beers: React.FunctionComponent<BeersProps> = ({}) => {
           <BeersList>
             {beers.map(beer => (
               <li key={beer.id}>
-                <BeerPreview
+                <BeerCard
                   id={beer.id}
                   imageUrl={beer.imageUrl}
                   name={beer.name}
