@@ -5,5 +5,5 @@ export const registerDependencies = (currentBeerId: string) => (
   container: AwilixContainer
 ) => {
   container.register("beerId", asValue(currentBeerId));
-  container.register("beerService", asFunction(createStore).singleton());
+  container.register("beerService", asFunction(createStore));
 };
