@@ -9,5 +9,6 @@ module.exports = {
   swFilePath: "./build/service-worker.js",
   stripPrefix: "build/",
   importScripts: ["./service-worker-api.js"],
-  handleFetch: false
+  handleFetch: false,
+  navigateFallback: "/index.html"
 };
