@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef, useEffect } from "react";
 
 import { useDependency } from "../hooks/useDependency";
 import { useObservable } from "../hooks/useObservable";
@@ -21,6 +21,7 @@ import { BackLink } from "../ui/BackLink";
 export interface SearchBeersProps {}
 
 export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
+  const inputRef = createRef<HTMLInputElement>();
   const store = useDependency(container =>
     container.resolve<SearchStore>("searchService")
   );
@@ -30,6 +31,12 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
     isSearching: false
   });
 
+  useEffect(() => {
+    if (inputRef.current !== null) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   return (
     <>
       <AppBar>
@@ -37,6 +44,7 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
           <SearchContainer>
             <BackLink to="/" aria-label="Back to beers list" />
             <SearchBox
+              ref={inputRef}
               aria-label="Search for a beer"
               name="search-beer"
               placeholder="Search for a beer..."
