@@ -34,7 +34,7 @@ export const Beers: React.FunctionComponent<BeersProps> = ({}) => {
         <AppBarContent>
           <AppBarTitle>Punk Web App</AppBarTitle>
           <AppBarActions>
-            <SearchButton>
+            <SearchButton aria-label="Search beers">
               <FiSearch />
             </SearchButton>
           </AppBarActions>

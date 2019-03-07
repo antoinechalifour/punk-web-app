@@ -40,7 +40,7 @@ export const Template: React.FunctionComponent<TemplateProps> = ({
   <Container>
     <AppBar>
       <AppBarContent>
-        <BackLink to="/" />
+        <BackLink to="/" aria-label="back to beers list" />
         <Header>{header}</Header>
       </AppBarContent>
     </AppBar>

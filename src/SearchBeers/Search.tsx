@@ -10,7 +10,8 @@ import {
   NoResults,
   NoResultsImage,
   NoResultsMessage,
-  SearchContainer
+  SearchContainer,
+  Title
 } from "./styles";
 import { SearchStore } from "./Store";
 import { BeerCard } from "../BeerCard";
@@ -34,8 +35,10 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
       <AppBar>
         <AppBarContent>
           <SearchContainer>
-            <BackLink to="/" />
+            <BackLink to="/" aria-label="Back to beers list" />
             <SearchBox
+              aria-label="Search for a beer"
+              name="search-beer"
               placeholder="Search for a beer..."
               onChange={e => store.search(e.target.value)}
             />
@@ -44,27 +47,38 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
         </AppBarContent>
       </AppBar>
       {results.beers === null ? (
-        <Instructions>Start typing to search your favorite beers!</Instructions>
+        <>
+          <Title>Search beers</Title>
+          <Instructions>
+            Start typing to search your favorite beers!
+          </Instructions>
+        </>
       ) : results.beers.length === 0 ? (
-        <NoResults>
-          <NoResultsImage />
-          <NoResultsMessage>
-            No match for "<span>{results.query}</span>"
-          </NoResultsMessage>
-        </NoResults>
+        <>
+          <Title>No results found</Title>
+          <NoResults>
+            <NoResultsImage />
+            <NoResultsMessage>
+              No match for "<span>{results.query}</span>"
+            </NoResultsMessage>
+          </NoResults>
+        </>
       ) : (
-        <ResultList>
-          {results.beers.map(beer => (
-            <li key={beer.id}>
-              <BeerCard
-                id={beer.id}
-                imageUrl={beer.imageUrl}
-                name={beer.name}
-                tagline={beer.tagline}
-              />
-            </li>
-          ))}
-        </ResultList>
+        <>
+          <Title>Results for "{results.query}"</Title>
+          <ResultList>
+            {results.beers.map(beer => (
+              <li key={beer.id}>
+                <BeerCard
+                  id={beer.id}
+                  imageUrl={beer.imageUrl}
+                  name={beer.name}
+                  tagline={beer.tagline}
+                />
+              </li>
+            ))}
+          </ResultList>
+        </>
       )}
     </>
   );

@@ -8,5 +8,5 @@ export interface ImageProps {
 }
 
 export const Image: React.FunctionComponent<ImageProps> = ({ beer }) => (
-  <BeerAvatar src={beer.imageUrl} />
+  <BeerAvatar alt={`Bottle of ${beer.name}`} src={beer.imageUrl} />
 );
