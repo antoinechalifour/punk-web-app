@@ -28,6 +28,9 @@ export const Beers: React.FunctionComponent<BeersProps> = ({}) => {
     initialState
   );
 
+  const showSkeleton =
+    state === "mounting" || (state === "loading" && beers.length === 0);
+
   return (
     <main>
       <AppBar>
@@ -40,7 +43,7 @@ export const Beers: React.FunctionComponent<BeersProps> = ({}) => {
           </AppBarActions>
         </AppBarContent>
       </AppBar>
-      {state === "mounting" ? (
+      {showSkeleton ? (
         <LoadingSkelleton />
       ) : (
         <InfiniteList
