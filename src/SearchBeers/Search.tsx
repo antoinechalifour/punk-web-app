@@ -1,8 +1,14 @@
-import React from "react";
+import React, { createRef, useEffect } from "react";
 
 import { useDependency } from "../hooks/useDependency";
 import { useObservable } from "../hooks/useObservable";
-import { SearchBox, Instructions, Loader, SearchContainer } from "./styles";
+import {
+  SearchBox,
+  Instructions,
+  Loader,
+  SearchContainer,
+  Title
+} from "./styles";
 import { SearchStore } from "./Store";
 import { AppBar, AppBarContent } from "../ui/AppBar";
 import { BackLink } from "../ui/BackLink";
@@ -12,6 +18,7 @@ import { NoResults } from "./NoResults";
 export interface SearchBeersProps {}
 
 export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
+  const inputRef = createRef<HTMLInputElement>();
   const store = useDependency(container =>
     container.resolve<SearchStore>("searchService")
   );
@@ -21,13 +28,22 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
     isSearching: false
   });
 
+  useEffect(() => {
+    if (inputRef.current !== null) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   return (
     <>
       <AppBar>
         <AppBarContent>
           <SearchContainer>
-            <BackLink to="/" />
+            <BackLink to="/" aria-label="Back to beers list" />
             <SearchBox
+              ref={inputRef}
+              aria-label="Search for a beer"
+              name="search-beer"
               placeholder="Search for a beer..."
               onChange={e => store.search(e.target.value)}
             />
@@ -37,17 +53,25 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
       </AppBar>
       {(() => {
         if (results.isSearching) {
-          return <Instructions>Searching beers...</Instructions>;
+          return (
+            <>
+              <Title>Results for "{results.query}"</Title>
+              <Instructions>Searching...</Instructions>
+            </>
+          );
         } else if (results.beers === null) {
           return (
-            <Instructions>
-              Start typing to search your favorite beers!
-            </Instructions>
+            <>
+              <Title>Search beers</Title>
+              <Instructions>
+                Start typing to search your favorite beers!
+              </Instructions>
+            </>
           );
         } else if (results.beers.length === 0) {
           return <NoResults query={results.query} />;
         } else {
-          return <Results beers={results.beers} />;
+          return <Results query={results.query} beers={results.beers} />;
         }
       })()}
     </>

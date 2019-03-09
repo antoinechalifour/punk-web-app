@@ -57,8 +57,14 @@ export const SearchBox = styled.input`
   }
 `;
 
+export const Title = styled.h1`
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2.5rem;
+`;
+
 export const Instructions = styled.p`
-  padding: 2rem;
+  padding: 0 2rem;
   text-align: center;
   font-weight: 300;
   opacity: 0.75;

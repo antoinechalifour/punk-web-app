@@ -18,5 +18,5 @@ export const CardTitle = styled.h2`
   padding-bottom: 1rem;
   margin-bottom: 1rem;
   font-weight: 500;
-  opacity: 0.5;
+  color: #737373;
 `;

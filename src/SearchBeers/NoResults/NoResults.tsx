@@ -1,4 +1,6 @@
 import React from "react";
+
+import { Title } from "../styles";
 import { Wrapper, Image, Message } from "./styles";
 
 export interface NoResultsProps {
@@ -8,10 +10,13 @@ export interface NoResultsProps {
 export const NoResults: React.FunctionComponent<NoResultsProps> = ({
   query
 }) => (
-  <Wrapper>
-    <Image />
-    <Message>
-      No match for "<span>{query}</span>"
-    </Message>
-  </Wrapper>
+  <>
+    <Title>No results found</Title>
+    <Wrapper>
+      <Image />
+      <Message>
+        No match for "<span>{query}</span>"
+      </Message>
+    </Wrapper>
+  </>
 );
