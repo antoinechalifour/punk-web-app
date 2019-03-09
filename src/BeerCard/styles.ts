@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 
+import { LazyImage } from "../ui/LazyImage";
+
 export const Wrapper = styled.div`
   padding: 0.5rem;
 `;
@@ -10,7 +12,7 @@ export const InnerLayout = styled.div`
   align-items: flex-start;
 `;
 
-export const Image = styled.img`
+export const Image = styled(LazyImage)`
   display: block;
   width: 75px;
   max-height: 75px;

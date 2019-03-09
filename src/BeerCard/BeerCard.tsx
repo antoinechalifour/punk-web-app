@@ -1,5 +1,6 @@
 import React from "react";
 
+import placeholder from "./placeholder.png";
 import { Card, CardContent } from "../ui/Card";
 import {
   Wrapper,
@@ -28,7 +29,11 @@ export const BeerCard: React.FunctionComponent<BeerCardProps> = ({
     <Card>
       <CardContent>
         <InnerLayout>
-          <Image src={imageUrl} alt={`Bottle of ${name}`} />
+          <Image
+            src={imageUrl}
+            alt={`Bottle of ${name}`}
+            placeholderSrc={placeholder}
+          />
           <Details>
             <Name>{name}</Name>
             <TagLine>{tagline}</TagLine>

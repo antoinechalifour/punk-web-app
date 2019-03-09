@@ -5,8 +5,9 @@ exports[`should match snapshot 1`] = `
   <styled.div>
     <styled.div>
       <styled.div>
-        <styled.img
+        <Styled(LazyImage)
           alt="Bottle of Punk IPA"
+          placeholderSrc="placeholder.png"
           src="http://example.com/picture.png"
         />
         <styled.div>
