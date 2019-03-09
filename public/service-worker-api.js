@@ -22,7 +22,6 @@ self.addEventListener("fetch", event => {
     event.respondWith(
       readResponseFromCache(event.request).then(cachedResponse => {
         if (cachedResponse) {
-          console.log("from cache:", cachedResponse);
           return cachedResponse;
         }
 

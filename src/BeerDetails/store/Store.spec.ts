@@ -1,10 +1,7 @@
 import { BeerStore } from "./types";
 import { createStore } from "./Store";
 import { BeerApi } from "../../api";
-
-function flushPromises() {
-  return new Promise(resolve => setImmediate(resolve));
-}
+import { flushPromises } from "../../test-utils";
 
 describe("beer store", () => {
   describe("when the API resolves the beer", () => {
