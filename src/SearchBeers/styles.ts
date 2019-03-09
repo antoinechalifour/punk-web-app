@@ -1,7 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-import noResults from "./no-results.png";
-
 export const SearchContainer = styled.div`
   position: relative;
   flex: 1;
@@ -64,45 +62,4 @@ export const Instructions = styled.p`
   text-align: center;
   font-weight: 300;
   opacity: 0.75;
-`;
-
-export const ResultList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-
-  @media (min-width: 768px) {
-    max-width: 800px;
-    margin: auto;
-    padding: 1rem 0;
-  }
-
-  > li {
-    flex-basis: 100%;
-    overflow: hidden;
-
-    @media (min-width: 768px) {
-      flex-basis: 50%;
-    }
-  }
-`;
-
-export const NoResults = styled.div`
-  padding: 2rem;
-  text-align: center;
-`;
-
-export const NoResultsImage = styled.img.attrs({
-  src: noResults
-})`
-  max-width: 100px;
-  margin-bottom: 2rem;
-  opacity: 0.2;
-`;
-
-export const NoResultsMessage = styled.p`
-  font-weight: 300;
-
-  span {
-    font-weight: 500;
-  }
 `;

@@ -2,20 +2,12 @@ import React from "react";
 
 import { useDependency } from "../hooks/useDependency";
 import { useObservable } from "../hooks/useObservable";
-import {
-  SearchBox,
-  Instructions,
-  ResultList,
-  Loader,
-  NoResults,
-  NoResultsImage,
-  NoResultsMessage,
-  SearchContainer
-} from "./styles";
+import { SearchBox, Instructions, Loader, SearchContainer } from "./styles";
 import { SearchStore } from "./Store";
-import { BeerCard } from "../BeerCard";
 import { AppBar, AppBarContent } from "../ui/AppBar";
 import { BackLink } from "../ui/BackLink";
+import { Results } from "./Results";
+import { NoResults } from "./NoResults";
 
 export interface SearchBeersProps {}
 
@@ -46,25 +38,9 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
       {results.beers === null ? (
         <Instructions>Start typing to search your favorite beers!</Instructions>
       ) : results.beers.length === 0 ? (
-        <NoResults>
-          <NoResultsImage />
-          <NoResultsMessage>
-            No match for "<span>{results.query}</span>"
-          </NoResultsMessage>
-        </NoResults>
+        <NoResults query={results.query} />
       ) : (
-        <ResultList>
-          {results.beers.map(beer => (
-            <li key={beer.id}>
-              <BeerCard
-                id={beer.id}
-                imageUrl={beer.imageUrl}
-                name={beer.name}
-                tagline={beer.tagline}
-              />
-            </li>
-          ))}
-        </ResultList>
+        <Results beers={results.beers} />
       )}
     </>
   );
