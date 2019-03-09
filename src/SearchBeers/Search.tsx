@@ -35,13 +35,21 @@ export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
           </SearchContainer>
         </AppBarContent>
       </AppBar>
-      {results.beers === null ? (
-        <Instructions>Start typing to search your favorite beers!</Instructions>
-      ) : results.beers.length === 0 ? (
-        <NoResults query={results.query} />
-      ) : (
-        <Results beers={results.beers} />
-      )}
+      {(() => {
+        if (results.isSearching) {
+          return <Instructions>Searching beers...</Instructions>;
+        } else if (results.beers === null) {
+          return (
+            <Instructions>
+              Start typing to search your favorite beers!
+            </Instructions>
+          );
+        } else if (results.beers.length === 0) {
+          return <NoResults query={results.query} />;
+        } else {
+          return <Results beers={results.beers} />;
+        }
+      })()}
     </>
   );
 };
