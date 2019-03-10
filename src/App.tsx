@@ -5,15 +5,15 @@ import { ToastContainer } from "react-toastify";
 import {
   Beers,
   registerDependencies as registerBeerListDependencies
-} from "./BeersList";
+} from "./modules/BeersList";
 import {
   BeerDetails,
   registerDependencies as registerBeerDependencies
-} from "./BeerDetails";
+} from "./modules/BeerDetails";
 import {
   SearchBeers,
   registerDependencies as registerSearchDependencies
-} from "./SearchBeers";
+} from "./modules/SearchBeers";
 import { DiScope } from "./Di/DiScope";
 
 export function App() {
