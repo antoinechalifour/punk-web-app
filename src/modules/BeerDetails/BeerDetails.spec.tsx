@@ -3,7 +3,7 @@ import { mount } from "enzyme";
 import { createContainer, asValue, AwilixContainer } from "awilix";
 import { of } from "rxjs";
 
-import { context as DiContext } from "../../Di";
+import { context as DiContext } from "../../di";
 import { ViewModelState, ViewModel } from "./types";
 
 import { BeerDetails } from "./BeerDetails";

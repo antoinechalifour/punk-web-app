@@ -5,7 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { toast } from "react-toastify";
 
-import { context as DiContext, createContainer } from "./Di";
+import { context as DiContext, createContainer } from "./di";
 import * as serviceWorker from "./serviceWorker";
 import { Theme } from "./ui/Theme";
 import { App } from "./App";

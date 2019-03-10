@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DiScope } from "../../Di/DiScope";
+import { DiScope } from "../../di/DiScope";
 import { registerDependencies } from "./di";
 import { SearchBeers } from "./Search";
 

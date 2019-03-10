@@ -1,7 +1,7 @@
 import { AwilixContainer } from "awilix";
 import { useContext, useMemo } from "react";
 
-import { context } from "../Di";
+import { context } from "../di";
 
 export type GetDependencies<T> = (container: AwilixContainer) => T;
 
