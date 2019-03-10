@@ -1,6 +1,9 @@
-import { createViewModel } from "./ViewModel";
-import { Beer } from "../types";
+import { throwError, of } from "rxjs";
+
+import { BeerRepository } from "../repository/beers/types";
 import { flushPromises } from "../test-utils";
+import { Beer } from "../types";
+import { createViewModel } from "./ViewModel";
 import { ViewModel } from "./types";
 
 jest.useFakeTimers();
@@ -85,18 +88,26 @@ describe("search beers view model", () => {
 
     beforeEach(async () => {
       subscriber = jest.fn();
-      searchBeers = jest.fn().mockResolvedValue(beers);
-      viewModel = createViewModel({
-        api: {
-          fetchBeer: jest
-            .fn()
-            .mockRejectedValue(new Error("Should not be called")),
-          fetchBeers: jest
-            .fn()
-            .mockRejectedValue(new Error("Should not be called")),
-          searchBeers
-        }
-      });
+      searchBeers = jest.fn().mockImplementation(() => of(beers));
+      const beerRepository: BeerRepository = {
+        getBeer: jest
+          .fn()
+          .mockImplementation(() =>
+            throwError(new Error("Should not be called"))
+          ),
+        getBeers: jest
+          .fn()
+          .mockImplementation(() =>
+            throwError(new Error("Should not be called"))
+          ),
+        searchBeers,
+        loadMoreBeers: jest
+          .fn()
+          .mockImplementation(() =>
+            throwError(new Error("Should not be called"))
+          )
+      };
+      viewModel = createViewModel({ beerRepository });
       viewModel.results$.subscribe(subscriber);
 
       await flushPromises();

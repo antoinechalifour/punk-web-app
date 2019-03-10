@@ -1,6 +1,5 @@
-import { from, of } from "rxjs";
+import { of } from "rxjs";
 
-import { BeerApi } from "../api";
 import {
   ViewModel,
   ViewModelState,
@@ -9,6 +8,7 @@ import {
   VMMountingState
 } from "./types";
 import { catchError, map, merge } from "rxjs/operators";
+import { BeerRepository } from "../repository/beers/types";
 
 export const initialState: VMMountingState = {
   state: "mounting"
@@ -16,12 +16,15 @@ export const initialState: VMMountingState = {
 
 export interface Options {
   beerId: string;
-  api: BeerApi;
+  beerRepository: BeerRepository;
 }
 
-export function createViewModel({ beerId, api }: Options): ViewModel {
-  const loading$ = of<ViewModelState>({ state: "loading" });
-  const fetchBeer$ = from(api.fetchBeer(beerId)).pipe(
+export function createViewModel({
+  beerId,
+  beerRepository
+}: Options): ViewModel {
+  const loading$ = of({ state: "loading" } as ViewModelState);
+  const fetchBeer$ = beerRepository.getBeer(beerId).pipe(
     map(
       beer =>
         ({
@@ -37,7 +40,7 @@ export function createViewModel({ beerId, api }: Options): ViewModel {
     )
   );
 
-  const state$ = of<ViewModelState>(initialState).pipe(
+  const state$ = of(initialState).pipe(
     merge(loading$),
     merge(fetchBeer$)
   );

@@ -5,6 +5,7 @@ exports[`should match snapshot 1`] = `
   <styled.header>
     <styled.div>
       <Styled(Link)
+        aria-label="back to beers list"
         to="/"
       />
       <styled.header>

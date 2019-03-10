@@ -1,14 +1,14 @@
 import { Subject, merge } from "rxjs";
 import { switchMap, filter, map, debounceTime } from "rxjs/operators";
 
-import { BeerApi } from "../api";
 import { ViewModel } from "./types";
+import { BeerRepository } from "../repository/beers/types";
 
 interface Options {
-  api: BeerApi;
+  beerRepository: BeerRepository;
 }
 
-export function createViewModel({ api }: Options): ViewModel {
+export function createViewModel({ beerRepository }: Options): ViewModel {
   const query$ = new Subject<string>();
 
   const abort$ = query$.pipe(
@@ -33,11 +33,13 @@ export function createViewModel({ api }: Options): ViewModel {
     filter(query => query.length >= 2),
     debounceTime(300),
     switchMap(query =>
-      api.searchBeers(query).then(beers => ({
-        query,
-        beers,
-        isSearching: false
-      }))
+      beerRepository.searchBeers(query).pipe(
+        map(beers => ({
+          query,
+          beers,
+          isSearching: false
+        }))
+      )
     )
   );
 

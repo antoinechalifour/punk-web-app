@@ -1,7 +1,9 @@
+import { of, throwError } from "rxjs";
+
+import { BeerRepository } from "../repository/beers/types";
+import { flushPromises } from "../test-utils";
 import { ViewModel } from "./types";
 import { createViewModel } from "./ViewModel";
-import { BeerApi } from "../api";
-import { flushPromises } from "../test-utils";
 
 describe("beer details ViewModel", () => {
   describe("when the API resolves the beer", () => {
@@ -75,28 +77,33 @@ describe("beer details ViewModel", () => {
       tagline: "A Real Bitter Experience.",
       yeast: "Wyeast 1056 - American Ale™"
     };
-    const api: BeerApi = {
-      fetchBeer: jest.fn().mockResolvedValue(beer),
-      fetchBeers: jest
-        .fn()
-        .mockRejectedValue(new Error("Should not be called")),
-      searchBeers: jest
-        .fn()
-        .mockRejectedValue(new Error("Should not be called"))
-    };
     const subscriber = jest.fn();
-
+    let beerRepository: BeerRepository;
     let viewModel: ViewModel;
 
     beforeEach(async () => {
-      viewModel = createViewModel({ beerId, api });
+      beerRepository = {
+        getBeer: jest.fn().mockImplementation(() => of(beer)),
+        getBeers: jest
+          .fn()
+          .mockImplementation(() =>
+            throwError(new Error("Should not be called"))
+          ),
+        searchBeers: jest
+          .fn()
+          .mockImplementation(() =>
+            throwError(new Error("Should not be called"))
+          ),
+        loadMoreBeers: jest.fn()
+      };
+      viewModel = createViewModel({ beerId, beerRepository });
       viewModel.state$.subscribe(subscriber);
       await flushPromises();
     });
 
     it("should call the API with the correct parameters", () => {
-      expect(api.fetchBeer).toHaveBeenCalledTimes(1);
-      expect(api.fetchBeer).toHaveBeenCalledWith(beerId);
+      expect(beerRepository.getBeer).toHaveBeenCalledTimes(1);
+      expect(beerRepository.getBeer).toHaveBeenCalledWith(beerId);
     });
 
     it("should first notify the mounting state to the subscriber", () => {
@@ -122,28 +129,32 @@ describe("beer details ViewModel", () => {
   describe("when the API rejects an error", () => {
     const beerId = "1";
     const error = new Error("Network failed");
-    const api: BeerApi = {
-      fetchBeer: jest.fn().mockRejectedValue(error),
-      fetchBeers: jest
-        .fn()
-        .mockRejectedValue(new Error("Should not be called")),
-      searchBeers: jest
-        .fn()
-        .mockRejectedValue(new Error("Should not be called"))
-    };
+    let beerRepository: BeerRepository;
     const subscriber = jest.fn();
 
     let viewModel: ViewModel;
 
     beforeEach(async () => {
-      viewModel = createViewModel({ beerId, api });
+      beerRepository = {
+        getBeer: jest.fn().mockImplementation(() => throwError(error)),
+        getBeers: jest
+          .fn()
+          .mockImplementation(() =>
+            throwError(new Error("Should not be called"))
+          ),
+        searchBeers: jest
+          .fn()
+          .mockImplementation(() => new Error("Should not be called")),
+        loadMoreBeers: jest.fn()
+      };
+      viewModel = createViewModel({ beerId, beerRepository });
       viewModel.state$.subscribe(subscriber);
       await flushPromises();
     });
 
     it("should call the API with the correct parameters", () => {
-      expect(api.fetchBeer).toHaveBeenCalledTimes(1);
-      expect(api.fetchBeer).toHaveBeenCalledWith(beerId);
+      expect(beerRepository.getBeer).toHaveBeenCalledTimes(1);
+      expect(beerRepository.getBeer).toHaveBeenCalledWith(beerId);
     });
 
     it("should first notify the mounting state to the subscriber", () => {
