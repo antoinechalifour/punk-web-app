@@ -2,51 +2,26 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import {
-  Beers,
-  registerDependencies as registerBeerListDependencies
-} from "./modules/BeersList";
-import {
-  BeerDetails,
-  registerDependencies as registerBeerDependencies
-} from "./modules/BeerDetails";
-import {
-  SearchBeers,
-  registerDependencies as registerSearchDependencies
-} from "./modules/SearchBeers";
-import { DiScope } from "./Di/DiScope";
+const BeerDetails = React.lazy(() => import("./modules/BeerDetails/Module"));
+const BeersList = React.lazy(() => import("./modules/BeersList/Module"));
+const SearchBeers = React.lazy(() => import("./modules/SearchBeers/Module"));
 
 export function App() {
   return (
-    <>
+    <React.Suspense fallback={null}>
       <BrowserRouter>
         <Switch>
           <Route
             path="/beers/:id"
-            render={({ match }) => (
-              <DiScope
-                registerDependencies={registerBeerDependencies(match.params.id)}
-              >
-                <BeerDetails />
-              </DiScope>
-            )}
+            render={({ match }) => <BeerDetails id={match.params.id} />}
           />
-          <Route
-            path="/search"
-            render={() => (
-              <DiScope registerDependencies={registerSearchDependencies()}>
-                <SearchBeers />
-              </DiScope>
-            )}
-          />
+          <Route path="/search" render={() => <SearchBeers />} />
           <Route>
-            <DiScope registerDependencies={registerBeerListDependencies()}>
-              <Beers />
-            </DiScope>
+            <BeersList />
           </Route>
         </Switch>
       </BrowserRouter>
       <ToastContainer />
-    </>
+    </React.Suspense>
   );
 }
