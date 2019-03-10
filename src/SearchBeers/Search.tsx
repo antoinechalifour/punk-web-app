@@ -9,18 +9,18 @@ import {
   SearchContainer,
   Title
 } from "./styles";
-import { SearchStore } from "./Store";
 import { AppBar, AppBarContent } from "../ui/AppBar";
 import { BackLink } from "../ui/BackLink";
 import { Results } from "./Results";
 import { NoResults } from "./NoResults";
+import { ViewModel } from "./types";
 
 export interface SearchBeersProps {}
 
 export const SearchBeers: React.FunctionComponent<SearchBeersProps> = () => {
   const inputRef = createRef<HTMLInputElement>();
   const store = useDependency(container =>
-    container.resolve<SearchStore>("searchService")
+    container.resolve<ViewModel>("viewModel")
   );
   const results = useObservable(store.results$, {
     beers: null,

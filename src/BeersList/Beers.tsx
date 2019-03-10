@@ -4,7 +4,6 @@ import { FiSearch } from "react-icons/fi";
 import { useDependency } from "../hooks/useDependency";
 import { useObservable } from "../hooks/useObservable";
 
-import { BeersStore, BeerStoreState, initialState } from "./store";
 import { BeerCard } from "../BeerCard";
 import { BeersList, SearchButton } from "./styles";
 import { InfiniteList } from "../ui/InfiniteList";
@@ -15,16 +14,18 @@ import {
   AppBarActions,
   AppBarTitle
 } from "../ui/AppBar";
+import { ViewModel, ViewModelState } from "./types";
+import { initialState } from "./ViewModel";
 
 export interface BeersProps {}
 
 export const Beers: React.FunctionComponent<BeersProps> = ({}) => {
-  const store = useDependency(container =>
-    container.resolve<BeersStore>("beersService")
+  const viewModel = useDependency(container =>
+    container.resolve<ViewModel>("viewModel")
   );
 
-  const { state, beers } = useObservable<BeerStoreState>(
-    store.state$,
+  const { state, beers } = useObservable<ViewModelState>(
+    viewModel.state$,
     initialState
   );
 
@@ -48,7 +49,7 @@ export const Beers: React.FunctionComponent<BeersProps> = ({}) => {
       ) : (
         <InfiniteList
           renderLoader={() => <>Loading...</>}
-          requestMoreItems={store.fetchMore}
+          requestMoreItems={viewModel.fetchMore}
         >
           <BeersList>
             {beers.map(beer => (

@@ -1,9 +1,9 @@
-import { BeerStore } from "./types";
-import { createStore } from "./Store";
-import { BeerApi } from "../../api";
-import { flushPromises } from "../../test-utils";
+import { ViewModel } from "./types";
+import { createViewModel } from "./ViewModel";
+import { BeerApi } from "../api";
+import { flushPromises } from "../test-utils";
 
-describe("beer store", () => {
+describe("beer details ViewModel", () => {
   describe("when the API resolves the beer", () => {
     const beerId = "1";
     const beer = {
@@ -86,11 +86,11 @@ describe("beer store", () => {
     };
     const subscriber = jest.fn();
 
-    let store: BeerStore;
+    let viewModel: ViewModel;
 
     beforeEach(async () => {
-      store = createStore({ beerId, api });
-      store.state$.subscribe(subscriber);
+      viewModel = createViewModel({ beerId, api });
+      viewModel.state$.subscribe(subscriber);
       await flushPromises();
     });
 
@@ -133,11 +133,11 @@ describe("beer store", () => {
     };
     const subscriber = jest.fn();
 
-    let store: BeerStore;
+    let viewModel: ViewModel;
 
     beforeEach(async () => {
-      store = createStore({ beerId, api });
-      store.state$.subscribe(subscriber);
+      viewModel = createViewModel({ beerId, api });
+      viewModel.state$.subscribe(subscriber);
       await flushPromises();
     });
 

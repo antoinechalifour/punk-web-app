@@ -1,24 +1,14 @@
-import { Observable, Subject, merge } from "rxjs";
+import { Subject, merge } from "rxjs";
 import { switchMap, filter, map, debounceTime } from "rxjs/operators";
-import { Beer } from "../types";
+
 import { BeerApi } from "../api";
+import { ViewModel } from "./types";
 
-export interface SearchResults {
-  query: string;
-  beers: Beer[] | null;
-  isSearching: boolean;
-}
-
-interface SearchStoreOptions {
+interface Options {
   api: BeerApi;
 }
 
-export interface SearchStore {
-  results$: Observable<SearchResults>;
-  search: (query: string) => void;
-}
-
-export function createSearchStore({ api }: SearchStoreOptions): SearchStore {
+export function createViewModel({ api }: Options): ViewModel {
   const query$ = new Subject<string>();
 
   const abort$ = query$.pipe(

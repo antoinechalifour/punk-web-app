@@ -4,7 +4,8 @@ import { createContainer, asValue, AwilixContainer } from "awilix";
 import { of } from "rxjs";
 
 import { context as DiContext } from "../Di";
-import { BeerStore, BeerStoreState } from "./store";
+import { ViewModelState, ViewModel } from "./types";
+
 import { BeerDetails } from "./BeerDetails";
 import { Loading } from "./Loading";
 import { Errored } from "./Errored";
@@ -18,7 +19,7 @@ describe.skip("BeerDetails", () => {
     let container: AwilixContainer;
 
     beforeEach(() => {
-      const state: BeerStoreState = {
+      const state: ViewModelState = {
         state: "mounting"
       };
       const mockService = {
@@ -26,7 +27,7 @@ describe.skip("BeerDetails", () => {
       };
       container = createContainer();
 
-      container.register<BeerStore>("beerService", asValue(mockService));
+      container.register<ViewModel>("viewModel", asValue(mockService));
     });
 
     it("should render a loading component", () => {
@@ -46,7 +47,7 @@ describe.skip("BeerDetails", () => {
     let container: AwilixContainer;
 
     beforeEach(() => {
-      const state: BeerStoreState = {
+      const state: ViewModelState = {
         state: "loading"
       };
       const mockService = {
@@ -54,7 +55,7 @@ describe.skip("BeerDetails", () => {
       };
       container = createContainer();
 
-      container.register<BeerStore>("beerService", asValue(mockService));
+      container.register<ViewModel>("viewModel", asValue(mockService));
     });
 
     it("should render a loading component", () => {
@@ -74,7 +75,7 @@ describe.skip("BeerDetails", () => {
     let container: AwilixContainer;
 
     beforeEach(() => {
-      const state: BeerStoreState = {
+      const state: ViewModelState = {
         state: "errored",
         error: new Error("Something went wrong")
       };
@@ -83,7 +84,7 @@ describe.skip("BeerDetails", () => {
       };
       container = createContainer();
 
-      container.register<BeerStore>("beerService", asValue(mockService));
+      container.register<ViewModel>("viewModel", asValue(mockService));
     });
 
     it("should render an error page", () => {
@@ -172,7 +173,7 @@ describe.skip("BeerDetails", () => {
     };
 
     beforeEach(() => {
-      const state: BeerStoreState = {
+      const state: ViewModelState = {
         state: "ready",
         beer
       };
@@ -181,7 +182,7 @@ describe.skip("BeerDetails", () => {
       };
       container = createContainer();
 
-      container.register<BeerStore>("beerService", asValue(mockService));
+      container.register<ViewModel>("viewModel", asValue(mockService));
     });
 
     it("should render the beer page", () => {

@@ -1,6 +1,7 @@
-import { createSearchStore, SearchStore } from "./Store";
+import { createViewModel } from "./ViewModel";
 import { Beer } from "../types";
 import { flushPromises } from "../test-utils";
+import { ViewModel } from "./types";
 
 jest.useFakeTimers();
 
@@ -76,16 +77,16 @@ const beers: Beer[] = [
   }
 ];
 
-describe("SearchBeers.store", () => {
+describe("search beers view model", () => {
   describe("search", () => {
     let subscriber: jest.Mock;
-    let store: SearchStore;
+    let viewModel: ViewModel;
     let searchBeers: jest.Mock;
 
     beforeEach(async () => {
       subscriber = jest.fn();
       searchBeers = jest.fn().mockResolvedValue(beers);
-      store = createSearchStore({
+      viewModel = createViewModel({
         api: {
           fetchBeer: jest
             .fn()
@@ -96,13 +97,13 @@ describe("SearchBeers.store", () => {
           searchBeers
         }
       });
-      store.results$.subscribe(subscriber);
+      viewModel.results$.subscribe(subscriber);
 
       await flushPromises();
     });
 
     it("should send the correct state when the query is less than 2 chars", async () => {
-      store.search("l");
+      viewModel.search("l");
 
       await flushPromises();
 
@@ -115,7 +116,7 @@ describe("SearchBeers.store", () => {
     });
 
     it("should send the loading state when the query is more than 2 chars", async () => {
-      store.search("la");
+      viewModel.search("la");
 
       jest.runAllTimers();
       await flushPromises();
@@ -129,7 +130,7 @@ describe("SearchBeers.store", () => {
     });
 
     it("should send the results state when the query is more than 2 chars", async () => {
-      store.search("la");
+      viewModel.search("la");
 
       jest.runAllTimers();
       await flushPromises();

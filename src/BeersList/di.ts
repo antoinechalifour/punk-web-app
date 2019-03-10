@@ -1,7 +1,7 @@
 import { AwilixContainer, asFunction } from "awilix";
 
-import { createStore } from "./store";
+import { createViewModel } from "./ViewModel";
 
 export const registerDependencies = () => (container: AwilixContainer) => {
-  container.register("beersService", asFunction(createStore).singleton());
+  container.register("viewModel", asFunction(createViewModel).scoped());
 };
