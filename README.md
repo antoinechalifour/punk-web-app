@@ -1,15 +1,24 @@
 # Punk Web App
 
+> A side project for experimenting Web technologies.
+
 <p align="center">
   <img src="screenshot.png" alt="Project screenshot"/>
 </p>
 
-A side project for experimenting Web technologies, including :
+**PunkWebApp** is a Progressive Web App written in TypeScript which :
 
-- Service worker (work in progress)
-- Reactive progamming with RxJS
-- IntersectionObservers
-- Fetch (and the [Punk API](https://punkapi.com/documentation/v2))
+- works offline
+- uses best practices
+- uses React for rendering the UI
+- uses Reactive Programming with RxJS for state management
+- uses an MVVM architecture style for decoupling presentation logic from React
+- uses dependency injection (using Awilix)
+- with a focus on accessibility
+- uses new web APIs such as :
+  - Service Workers
+  - IntersectionObservers
+  - the Fetch API
 
 ---
 
@@ -46,29 +55,3 @@ ready to be deployed!
 See the section about
 [deployment](https://facebook.github.io/create-react-app/docs/deployment) for
 more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
-
-Instead, it will copy all the configuration files and the transitive
-dependencies (Webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
